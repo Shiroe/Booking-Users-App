@@ -1,6 +1,6 @@
 # Travelusive Users App
 
-  A users app that works for travelusive platform for clients
+  A mobile app that works for travelusive platform for clients.
   
 # Installation
 
