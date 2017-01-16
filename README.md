@@ -1,4 +1,8 @@
-* Travelusive Users App *
+# Travelusive Users App
+
+  A users app that works for travelusive platform for clients
+  
+# Installation
 
 - install nodejs (suggested 6.9.4 LTS)
 
@@ -11,7 +15,7 @@
 - ionic serve
   - use -lc to livereload and Console log to terminal
   
-** Optionally **
+## Optionally
   - ionic platform add android/ios (depending on platform)
     - this also requires corresponding OS and sdk
   - ionic build && ionic run android/ios
