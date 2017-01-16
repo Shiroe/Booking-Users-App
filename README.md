@@ -20,4 +20,4 @@
     - this also requires corresponding OS and sdk
   - ionic build && ionic run android/ios
   
------------------------------------------------------------
+---------------------------------------------------------------
