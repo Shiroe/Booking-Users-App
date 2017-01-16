@@ -1,0 +1,55 @@
+page-home {
+	ion-content{
+		background-image: url('../assets/images/home-hero-with-gradient.jpg');
+		background-size: cover;
+		background-repeat: no-repeat;
+	}
+	section{
+		width: 100%;
+	}
+
+	ion-grid{
+		z-index: 100;
+
+		img#logo{
+			// background-image: url('../assets/images/logo-Travelusive.png');
+			background-size: cover;
+			background-repeat: no-repeat;
+		    width: 100%;
+		    height: 50px;
+		}
+	}
+
+
+	#homepage div {
+		margin-top: 5vh;
+	}
+
+	#homepage h1:before, #homepage h1:after{
+		content: '';
+		background: #fff;
+		display: block;
+		width: 95px;
+		height: 5px;
+		margin: 0 auto;
+	}
+
+	#homepage h1:before{
+		margin-bottom: 37px;
+	}
+
+	#homepage h1:after{
+		margin-top: 33px;
+	}
+
+
+	#homepage h1{
+		color: #fff;
+		font-size: 56px;
+	}
+
+	#homepage p{
+		color: #fff;
+		font-size: 26px;
+	}
+}

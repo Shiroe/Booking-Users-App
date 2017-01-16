@@ -1,0 +1,30 @@
+<ion-header>
+	<ion-grid>
+		<ion-row>
+			<ion-col width-50 offset-25 text-center><img id="logo" src="assets/images/logo-Travelusive.png"/></ion-col>
+			<!-- <ion-col width-40 offset-10 text-right><button ion-button color="light" outline>My Booking</button></ion-col> -->
+		</ion-row>
+	</ion-grid>
+</ion-header>
+
+<ion-content padding>
+	<section id="homepage">
+		<div text-center>
+			<h1>Travel<br>Everywhere</h1>
+			<p>
+				Spend less for your stay and<br>
+				more on the experience
+			</p>
+		</div>
+	</section>
+	<section>
+		<div style="background-color: transparent;">
+			<div style="background-color: transparent; margin-bottom: 30px;">
+				<button ion-button color="light" class="button-block" large outline (click)="request()">Make Request</button>
+			</div>
+			<div style="background-color: transparent;">
+				<button ion-button color="light" class="button-block" large outline (click)="bookings()">My Booking</button>
+			</div>
+		</div>
+	</section>
+</ion-content>
