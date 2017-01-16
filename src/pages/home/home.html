@@ -1,4 +1,4 @@
-<ion-header>
+<ion-header id="homeheader">
 	<ion-grid>
 		<ion-row>
 			<ion-col width-50 offset-25 text-center><img id="logo" src="assets/images/logo-Travelusive.png"/></ion-col>
@@ -17,13 +17,13 @@
 			</p>
 		</div>
 	</section>
-	<section>
+	<section id="homebuttons">
 		<div style="background-color: transparent;">
 			<div style="background-color: transparent; margin-bottom: 30px;">
-				<button ion-button color="light" class="button-block" large outline (click)="request()">Make Request</button>
+				<button ion-button color="light" class="button-block" large outline (click)="request()"><span>Make Request</span></button>
 			</div>
 			<div style="background-color: transparent;">
-				<button ion-button color="light" class="button-block" large outline (click)="bookings()">My Booking</button>
+				<button ion-button color="light" class="button-block" large outline (click)="bookings()"><span>My Booking</span></button>
 			</div>
 		</div>
 	</section>

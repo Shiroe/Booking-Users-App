@@ -8,6 +8,10 @@ page-home {
 		width: 100%;
 	}
 
+	.ios #homeheader img{
+		margin-top: 15px !important;
+	}
+
 	ion-grid{
 		z-index: 100;
 
@@ -51,5 +55,11 @@ page-home {
 	#homepage p{
 		color: #fff;
 		font-size: 26px;
+	}
+
+	#homebuttons {
+		button{
+			background-color: rgba(238, 238, 238, 0.2);
+		}
 	}
 }

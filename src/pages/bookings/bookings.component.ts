@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { NavController, ToastController } from 'ionic-angular';
 
 import { BookingsService } from './bookings.service';
+// import { BookingRowComponent } from './bookingrow.component';
 
 @Component({
 	selector: 'bookings-view',
@@ -10,7 +11,7 @@ import { BookingsService } from './bookings.service';
 })
 export class BookingsComponent {
 
-	bookings;// = [ '1', '2', '3'];
+	bookings;
 
 	constructor(public navCtrl: NavController, private bookingsService: BookingsService, private toastCtrl: ToastController) {
 		console.log('view loaded');
@@ -24,23 +25,24 @@ export class BookingsComponent {
 
 	addNewBooking(){
 		this.presentToast('This feature is not yet available', 'bottom');
+		//this.bookingsService.addNewBooking('a12312xdfas', 'asda@sa.cs');
 	}
 
 
 	// START OF TEMP
 	// TODO DELETE THIS WHEN HAVE FUNCTIONALITY OR MOVE IT TO A SEPARATE SERVICE/Component
 	presentToast(text, pos) {
-	  let toast = this.toastCtrl.create({
-	    message: text,
-	    duration: 3000,
-	    position: pos
-	  });
+		let toast = this.toastCtrl.create({
+			message: text,
+			duration: 3000,
+			position: pos
+		});
 
-	  toast.onDidDismiss(() => {
-	    console.log('Dismissed toast');
-	  });
+		toast.onDidDismiss(() => {
+			console.log('Dismissed toast');
+		});
 
-	  toast.present();
+		toast.present();
 	}
 	//END OF TEMP
 }

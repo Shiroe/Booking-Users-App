@@ -1,16 +1,20 @@
 import { Injectable } from '@angular/core';
-
-// import { ServerService } from './app/shared/server/server.service';
-
+import { ServerService } from '../../app/shared/server/server.service';
 
 @Injectable()
-export class BookingsService {
+export class BookingsService{
+
+	constructor(private serverService: ServerService){
+
+	}
 
 	getBookings(){
-		//should return promise from server service instead
-		return [{ id: 'Paros, Greece', price: 22, date: '20170212'},
-		 		{ id: 'Mykonos, Greece', price: 52, date: '20170312'},
-				{ id: 'Zakynthos, Greece', price: 122, date: '16052017'}
-			];
+		return this.serverService.getBookings();
+	}
+
+	addNewBooking( bookingRef: string,  userEmail: string){
+
+		//This should handle the booking ref and user mail 
+		// as object to the ServerService .addNew()
 	}
 }
