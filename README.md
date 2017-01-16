@@ -8,9 +8,9 @@
 
 - npm install -g ionic cordova
 
-- git clone this directory
+- git clone https://github.com/ViralPassion/Travelusive-users-app.git
 
-- cd inside directory
+- cd Travelusive-users-app
 
 - ionic serve
   - use -lc to livereload and Console log to terminal
