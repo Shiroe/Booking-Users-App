@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      New Booking
+    </ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="openModal()">
+				<div style="width: 50px; display: block;">
+					<ion-icon name="ios-chatbubbles-outline" style="display: block;"></ion-icon>
+					<span style="display: block;">Chat</span>
+				</div>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content class="stepsContainer" padding text-center>
+    <div class="stepOnePrice" text-center>
+        <div>
+            <h2>I want to spend</h2>
+        </div>        
+        <div class="inputContainer" text-center>
+            <!--<ion-label stacked>$</ion-label>-->
+            <input type="number"/>
+        </div>
+        <div>
+            <h2>per room per night</h2>
+        </div>        
+    </div>
+
+    <div class="stepOneLocation" text-center>
+        <div>
+            <h2>Somewhere specific</h2>
+        </div>
+        <div class="inputContainer" text-center>
+            <!--<ion-label stacked>Destination</ion-label>-->
+            <input type="text"/>
+        </div>
+    </div>
+    <div class="bottomSectionBtn" (click)="next()">
+        <button ion-button class="button-block" large outline color="default" outline>Next</button>
+    </div>
+</ion-content>

@@ -1,0 +1,54 @@
+bookingStep-One{
+    ion-content{
+        background-color: #cecece;
+    }   
+
+    .stepsContainer{
+        background-color: #eee;
+    } 
+
+    .stepOnePrice{
+        margin-top: 30px;
+    }
+
+    div h2{
+        color: #f33617;
+        margin-top: 20px;
+        font-size: 30px;
+        line-height: 34px;
+    }
+
+    input{
+        font-size: 22px;
+        line-height: 26px;
+        padding: 5px;
+        border: none;
+        text-align: center;
+        width: 100%;
+        background-color: transparent;
+        border-bottom: 1px solid #cecece;
+    }
+
+    div.inputContainer{
+        text-align: center;
+        width: 50%;
+        margin-top: 20px !important;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 40px;
+    }
+
+    div.inputContainer:last-child{
+        width: 100%;
+    }
+
+    input:focus{
+        border-bottom: 1px solid #f33617;
+    }
+
+    .bottomSectionBtn{
+        margin-top: 50px;
+    }
+
+
+}
