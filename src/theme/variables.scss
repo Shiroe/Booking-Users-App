@@ -24,12 +24,20 @@ $font-path: "../assets/fonts";
 // The "primary" color is the only required color in the map.
 
 $colors: (
-  primary:    #387ef5,
+  primary:    #f53d3d,
   secondary:  #32db64,
-  danger:     #f53d3d,
+  danger:     #387ef5,
   light:      #f4f4f4,
   dark:       #222
 );
+
+// $colors: (
+//   primary:    #387ef5,
+//   secondary:  #32db64,
+//   danger:     #f53d3d,
+//   light:      #f4f4f4,
+//   dark:       #222
+// );
 
 
 // App iOS Variables
@@ -74,5 +82,8 @@ $colors: (
 // Fonts
 // --------------------------------------------------
 
-@import "roboto";
-@import "noto-sans";
+// @import "roboto";
+@import url('https://fonts.googleapis.com/css?family=Dosis');
+@import url('https://fonts.googleapis.com/css?family=Stardos+Stencil');
+// @import "sans-serif";
+// @import "noto-sans";

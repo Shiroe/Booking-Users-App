@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
 import { BookingsComponent } from '../bookings/bookings.component';
-import { BookingRequestComponent } from '../bookingRequest/bookingRequest.component';
+import { BookingStepOne } from '../bookingRequest/bookingStep-One.component';
 
 @Component({
   selector: 'page-home',
@@ -17,7 +17,7 @@ export class HomePage {
 
   request(){
 	  console.log('request pressed');
-    this.navCtrl.push(BookingRequestComponent, {});
+    this.navCtrl.push(BookingStepOne, {});
   }
 
   bookings(){

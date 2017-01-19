@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      New Booking
+    </ion-title>
+
+    <ion-buttons end>
+        <livechat-bubble></livechat-bubble>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content class="stepsContainer" padding text-center>
+    <div class="" text-center>
+        <div>
+            <h2 class="heading" id="hotelResultsHeading">X Hotels Found</h2>
+        </div>        
+        
+    </div>
+    <div id="map" class="mapContainer">
+        <div class="glassfilter"></div>
+    </div>
+    <div class="stepThreeConfigs" text-center>
+        <!--<ion-item>-->
+            <ion-range color="default" [pin]="true" [min]="0.5" [max]="10" [step]="0.5" [snaps]="true" [(ngModel)]="brightness">
+            </ion-range>
+        <!--</ion-item>-->
+        <div class="starsContainer">
+            <h2>Somewhere specific</h2>
+            <!--<div class="row">
+                <div width-50>
+                    <ion-checkbox color="danger" [(ngModel)]="bookingRequest.stars[0]"></ion-checkbox>
+                    <ion-icon name="star" [ngClass]="{'active': pepperoni1}"></ion-icon>
+                </div>
+                <div width-50>
+                    <ion-checkbox color="danger" [(ngModel)]="bookingRequest.stars[1]"></ion-checkbox>
+                    <ion-icon name="star" [ngClass]="{'active': pepperoni2}"></ion-icon>
+                    <ion-icon name="star" [ngClass]="{'active': pepperoni2}"></ion-icon>
+                </div>
+            </div>
+            <div class="row">
+                <div width-50>
+                    <ion-checkbox color="danger" [(ngModel)]="bookingRequest.stars[2]"></ion-checkbox>
+                    <ion-icon name="star" [ngClass]="{'active': pepperoni3}"></ion-icon>
+                    <ion-icon name="star" [ngClass]="{'active': pepperoni3}"></ion-icon>
+                    <ion-icon name="star" [ngClass]="{'active': pepperoni3}"></ion-icon>
+                </div>
+
+                <div width-50>
+                    <ion-checkbox color="danger" [(ngModel)]="bookingRequest.stars[3]"></ion-checkbox>
+                    <ion-icon name="star" [ngClass]="{'active': pepperoni4}"></ion-icon>
+                    <ion-icon name="star" [ngClass]="{'active': pepperoni4}"></ion-icon>
+                    <ion-icon name="star" [ngClass]="{'active': pepperoni4}"></ion-icon>
+                    <ion-icon name="star" [ngClass]="{'active': pepperoni4}"></ion-icon>
+                </div>
+            </div>-->
+            <div>
+                <ion-checkbox color="danger" [(ngModel)]="bookingRequest.stars[4]"></ion-checkbox>
+                <ion-icon name="star" [ngClass]="{'active': pepperoni5}"></ion-icon>
+                <ion-icon name="star" [ngClass]="{'active': pepperoni5}"></ion-icon>
+                <ion-icon name="star" [ngClass]="{'active': pepperoni5}"></ion-icon>
+                <ion-icon name="star" [ngClass]="{'active': pepperoni5}"></ion-icon>
+                <ion-icon name="star" [ngClass]="{'active': pepperoni5}"></ion-icon>
+            </div>
+        </div>
+        <div class="extrasContainer" text-center>
+            <ion-checkbox color="danger" [(ngModel)]="bookingRequest.wifi"></ion-checkbox>
+            <ion-icon ios="ios-wifi" md="ios-wifi"></ion-icon>
+
+            <ion-checkbox color="danger" [(ngModel)]="bookingRequest.pool"></ion-checkbox>
+            <ion-icon ios="md-wifi" md="md-wifi"></ion-icon>
+        </div>
+    </div>
+    <div class="bottomSectionBtn" (click)="next()">
+        <button ion-button class="button-block" large outline color="default" outline>Next</button>
+    </div>
+</ion-content>

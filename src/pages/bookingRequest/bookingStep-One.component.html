@@ -6,12 +6,7 @@
     </ion-title>
 
     <ion-buttons end>
-      <button ion-button icon-only (click)="openModal()">
-				<div style="width: 50px; display: block;">
-					<ion-icon name="ios-chatbubbles-outline" style="display: block;"></ion-icon>
-					<span style="display: block;">Chat</span>
-				</div>
-      </button>
+        <livechat-bubble></livechat-bubble>
     </ion-buttons>
   </ion-navbar>
 
@@ -20,12 +15,19 @@
 <ion-content class="stepsContainer" padding text-center>
     <div class="stepOnePrice" text-center>
         <div>
-            <h2>I want to spend</h2>
+            <h2 class="heading">I want to spend</h2>
         </div>        
-        <div class="inputContainer" text-center>
+        <!--<div class="" text-center>-->
             <!--<ion-label stacked>$</ion-label>-->
-            <input type="number"/>
-        </div>
+            <ion-row>
+                <ion-col class="input" width-50 offset-25>
+                    <input type="text" [(ngModel)]="bookingRequest.price" ng-required="true"/>
+                </ion-col>
+                <ion-col class="symbol" width-10>
+                    <ion-icon name="logo-euro"></ion-icon>
+                </ion-col>
+            </ion-row>
+        <!--</div>-->
         <div>
             <h2>per room per night</h2>
         </div>        
@@ -37,7 +39,7 @@
         </div>
         <div class="inputContainer" text-center>
             <!--<ion-label stacked>Destination</ion-label>-->
-            <input type="text"/>
+            <input type="text" [(ngModel)]="bookingRequest.location" ng-required="true"/>
         </div>
     </div>
     <div class="bottomSectionBtn" (click)="next()">

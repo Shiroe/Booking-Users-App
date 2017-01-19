@@ -2,9 +2,16 @@ import { Injectable } from '@angular/core';
 // import { Observable } from 'rxjs/Observable';
 
 import { Booking } 	  from '../../../pages/bookings/bookings'
+import { PopupToastService } from '../popupToast/popupToast.service';
 
 @Injectable()
 export class ServerService {
+
+	//TO DELETE THIS AND TOAST
+	constructor( 
+		private _popupToastService: PopupToastService){
+
+    }
 
 	getBookings(){
 		//should return promise from server service instead
@@ -14,7 +21,8 @@ export class ServerService {
 			];
 	}
 
-	addNewBooking(booking: Booking){
+	addNewBooking(booking?: Booking){
+		this._popupToastService.notAvailable('bottom');
 		// TODO this should add new booking
 		// to the bookings list.
 	}

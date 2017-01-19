@@ -1,8 +1,23 @@
 page-home {
+	background-image: url('../assets/images/home-hero-with-gradient.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	
+
+	.transparencyFilter{
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		opacity: 0.2 !important;
+		width: 100%;
+		height: 100%;
+		background-color: #fff;
+	}
+
 	ion-content{
-		background-image: url('../assets/images/home-hero-with-gradient.jpg');
-		background-size: cover;
-		background-repeat: no-repeat;
+		background-color: transparent !important;
 	}
 	section{
 		width: 100%;
@@ -27,6 +42,7 @@ page-home {
 
 	#homepage div {
 		margin-top: 5vh;
+		font-family: "Stardos Stencil", serif;
 	}
 
 	#homepage h1:before, #homepage h1:after{

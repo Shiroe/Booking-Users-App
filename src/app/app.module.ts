@@ -9,7 +9,11 @@ import { LiveChatService } from './shared/livechat/livechat.service';
 import { BookingsService } from '../pages/bookings/bookings.service';
 import { BookingsComponent } from '../pages/bookings/bookings.component';
 import { BookingRowComponent } from '../pages/bookings/bookingrow.component';
-import { BookingRequestComponent } from '../pages/bookingRequest/bookingRequest.component';
+import { BookingStepOne } from '../pages/bookingRequest/bookingStep-One.component';
+import { BookingStepTwo } from '../pages/bookingRequest/bookingStep-Two.component';
+import { BookingStepThree } from '../pages/bookingRequest/bookingStep-Three.component';
+import { LiveChatBubbleComponent } from './shared/livechat/livechat.component';
+import { PopupToastService } from './shared/popupToast/popupToast.service';
 
 @NgModule({
   declarations: [
@@ -17,7 +21,10 @@ import { BookingRequestComponent } from '../pages/bookingRequest/bookingRequest.
     HomePage,
 	  BookingsComponent,
     BookingRowComponent,
-    BookingRequestComponent
+    BookingStepOne,
+    BookingStepTwo,
+    BookingStepThree,
+    LiveChatBubbleComponent
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -28,8 +35,11 @@ import { BookingRequestComponent } from '../pages/bookingRequest/bookingRequest.
     HomePage,
     BookingsComponent,
     BookingRowComponent,
-    BookingRequestComponent
+    BookingStepOne,
+    BookingStepTwo,
+    BookingStepThree,
+    LiveChatBubbleComponent
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, BookingsService, ServerService, LiveChatService]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, PopupToastService, BookingsService, ServerService, LiveChatService]
 })
 export class AppModule {}
