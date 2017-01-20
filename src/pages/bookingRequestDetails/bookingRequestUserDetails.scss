@@ -61,4 +61,49 @@ bookingRequest-confirm{
     div.bottomSectionBtn button ion-icon{
         margin-right: 10px;
     }
+
+    .headerContainer ion-icon{
+        display: inline-block;
+        font-size: 3.0em;
+        color: #f33617;
+        right: 0!important;
+        position: fixed;
+        right: 20px !important;
+        top: 15px;
+    }
+
+    .redlinedivider{
+        height: 5px;
+        background-color: #f33617;
+        width: 95px;
+        // margin-left: -105px;
+        margin-top: -15px;
+        margin-bottom: 15px;
+        display: block;
+    }
+
+    .headerContainer h3{
+        margin-left: -15px;
+        margin-top: 10px !important;
+    }
+
+    div.detailsContainer p{
+        font-size: 18px;
+        line-height: 22px;
+        color: #f33617;
+        padding: 10px;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    div.detailsContainer ion-item{
+        margin-bottom: 20px;
+        border: 2px solid #111;
+    }
+
+    div.detailsContainer ion-row ion-item{
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
