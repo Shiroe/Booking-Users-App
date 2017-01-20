@@ -3,7 +3,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { NavController, NavParams, Platform, Content } from 'ionic-angular';
 import { GoogleMap, GoogleMapsEvent, GoogleMapsLatLng } from 'ionic-native';
 // import { LiveChatService } from '../../app/shared/livechat/livechat.service';
-// import { BookingStepThree } from './bookingStep-Three.component'
+import { bookingRequestUserDetailsComponent } from '../bookingRequestDetails/bookingRequestUserDetails.component';
 
 @Component({
     selector: 'bookingStep-Three',
@@ -22,7 +22,8 @@ export class BookingStepThree implements OnInit{
             private _navCtrl: NavController, 
             private _navParams: NavParams){
         platform.ready().then(() => {
-            this.loadMap();
+            if(platform.is('cordova'))
+                    this.loadMap();
         });
     }
 
@@ -33,8 +34,8 @@ export class BookingStepThree implements OnInit{
         this.map = new GoogleMap('map', {
           'backgroundColor': 'white',
           'controls': {
-            'compass': true,
-            'myLocationButton': true,
+            'compass': false,
+            'myLocationButton': false,
             'indoorPicker': true,
             'zoom': true
           },
@@ -67,7 +68,8 @@ export class BookingStepThree implements OnInit{
         console.log('BookingsRequestWizard started');        
         this.bookingRequest = this._navParams.get('bookingRequest');
         this.bookingRequest.stars = [];
-        this.content.ionScrollEnd.subscribe(this.mapRedraw());
+        if(this.platform.is('cordova'))
+                this.content.ionScrollEnd.subscribe(this.mapRedraw());
     }
 
     // ngAfterViewInit() {
@@ -76,6 +78,6 @@ export class BookingStepThree implements OnInit{
 
     next(){
         console.log('next step', this.bookingRequest); 
-        // this._navCtrl.push(BookingStepThree, {});
+        this._navCtrl.push(bookingRequestUserDetailsComponent, { bookingRequest: this.bookingRequest});
     }
 }

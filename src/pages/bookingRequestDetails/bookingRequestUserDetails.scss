@@ -1,0 +1,64 @@
+bookingRequest-details{
+    ion-content { 
+        background-color: #f4f4f4 !important;
+    }
+
+    .redlinedivider{
+        height: 5px;
+        background-color: #f33617;
+        width: 200px;
+        margin-left: -105px;
+        margin-top: -10px;
+        margin-bottom: 15px;
+        display: block;
+    }
+
+    .headerContainer h3{
+        margin-top: 10px !important;
+    }
+
+    .headerContainer ion-icon{
+        display: inline-block;
+        font-size: 3.0em;
+        color: #f33617;
+        right: 0!important;
+        position: fixed;
+        right: 20px !important;
+        top: 15px;
+    }
+
+    .detailsContainer{ 
+        height: 300px;
+    }
+
+    span.total-price{
+        font-size: 28px;
+        font-weight: bold;
+        margin-left: 10px;
+    }
+
+    ion-row span.left, ion-row span.right{
+        font-size: 1.4em;
+        width: 100%;
+    }
+
+    ion-row span.left{
+        // margin-right: auto;
+    }
+
+    ion-row span.right{
+        color: #f33617;
+        text-align: left;
+    }
+}
+
+bookingRequest-confirm{
+    div.bottomSectionBtn button{
+        box-shadow: none !important;
+        font-weight: 600;
+    }
+
+    div.bottomSectionBtn button ion-icon{
+        margin-right: 10px;
+    }
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<ion-content padding text-left>
+    <div padding class="headerContainer">
+        <ion-row>
+            <h3 width-80>Your booking request</h3>
+            <ion-icon name="close" (click)="back()"></ion-icon>
+        </ion-row>
+    </div>
+    <span class="redlinedivider"></span>
+    <div padding class="detailsContainer">
+        <ion-row>
+            <span class="left" width-50>Room price</span>
+            <span class="right" width-50>&euro; {{ bookingRequest.price }}</span>
+        </ion-row>
+        <ion-row>
+            <span class="left" width-50>Location</span>
+            <span class="right" width-50>{{bookingRequest.location}}, {{bookingRequest.country}}</span>
+        </ion-row>
+        <ion-row>
+            <span class="left" width-50>Check-in</span>
+            <span class="right" width-50>{{ bookingRequest.checkin }}</span>
+        </ion-row>
+        <ion-row>
+            <span class="left" width-50>Check-out</span>
+            <span class="right" width-50>{{ bookingRequest.checkout }}</span>
+        </ion-row>
+        <ion-row>
+            <span class="left" width-50>Guests</span>
+            <span class="right" width-50>{{ bookingRequest.guests }}</span>
+        </ion-row>
+        <ion-row>
+            <span class="left" width-50>Rooms</span>
+            <span class="right" width-50>{{ bookingRequest.guests }}</span>
+        </ion-row>
+        <ion-row>
+            <span class="left" width-50>Hotels stars</span>
+            <span class="right" width-50>Hotels stars</span>
+        </ion-row>
+        <ion-row>
+            <span class="left" width-50>Wifi</span>
+            <span class="right" width-50>{{ bookingRequest.wifi? 'Yes' : 'Not required' }}</span>
+        </ion-row>
+        <ion-row>
+            <span class="left" width-50>Pool</span>
+            <span class="right" width-50>{{ bookingRequest.pool? 'Yes' : 'Not required'  }}</span>
+        </ion-row>
+    </div>
+    <div padding class="headerContainer">
+        <h3 width-80>Total Cost</h3>
+    </div>
+    <span class="redlinedivider"></span>
+    <span class="total-price">&euro; 240,00</span>
+    <div class="bottomSectionBtn" (click)="next()">
+        <button ion-button class="button-block" large outline color="default" outline>PROCEED TO CHECKOUT</button>
+    </div>
+</ion-content>

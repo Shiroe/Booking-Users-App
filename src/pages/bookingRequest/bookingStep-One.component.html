@@ -35,11 +35,22 @@
 
     <div class="stepOneLocation" text-center>
         <div>
-            <h2>Somewhere specific</h2>
+            <ion-item>
+                <ion-label>WHERE TO?</ion-label>
+                <ion-select class="dropdown" [(ngModel)]="bookingRequest.country">
+                    <!--<ion-option value="" selected="true">Country..</ion-option>-->
+                    <ion-option value="Greece">Greece</ion-option>
+                    <ion-option value="France">France</ion-option>
+                    <ion-option value="Usa">Usa</ion-option>
+                </ion-select>
+            </ion-item>
         </div>
         <div class="inputContainer" text-center>
-            <!--<ion-label stacked>Destination</ion-label>-->
-            <input type="text" [(ngModel)]="bookingRequest.location" ng-required="true"/>
+            <ion-item>
+                <ion-label>SOMEWHERE SPECIFIC?</ion-label>
+                <ion-input placeholder="Text Input" type="text" [(ngModel)]="bookingRequest.location"></ion-input>
+                <!--<input type="text" [(ngModel)]="bookingRequest.location" ng-required="true"/>-->
+            </ion-item>
         </div>
     </div>
     <div class="bottomSectionBtn" (click)="next()">

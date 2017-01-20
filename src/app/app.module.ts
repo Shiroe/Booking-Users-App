@@ -12,6 +12,8 @@ import { BookingRowComponent } from '../pages/bookings/bookingrow.component';
 import { BookingStepOne } from '../pages/bookingRequest/bookingStep-One.component';
 import { BookingStepTwo } from '../pages/bookingRequest/bookingStep-Two.component';
 import { BookingStepThree } from '../pages/bookingRequest/bookingStep-Three.component';
+import { bookingRequestUserDetailsComponent } from '../pages/bookingRequestDetails/bookingRequestUserDetails.component';
+import { bookingRequestUserDetailsConfirmationComponent } from '../pages/bookingRequestDetails/bookingRequestUserDetailsConfirmation.component';
 import { LiveChatBubbleComponent } from './shared/livechat/livechat.component';
 import { PopupToastService } from './shared/popupToast/popupToast.service';
 
@@ -24,6 +26,8 @@ import { PopupToastService } from './shared/popupToast/popupToast.service';
     BookingStepOne,
     BookingStepTwo,
     BookingStepThree,
+    bookingRequestUserDetailsComponent,
+    bookingRequestUserDetailsConfirmationComponent,
     LiveChatBubbleComponent
   ],
   imports: [
@@ -38,6 +42,8 @@ import { PopupToastService } from './shared/popupToast/popupToast.service';
     BookingStepOne,
     BookingStepTwo,
     BookingStepThree,
+    bookingRequestUserDetailsComponent,
+    bookingRequestUserDetailsConfirmationComponent,
     LiveChatBubbleComponent
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, PopupToastService, BookingsService, ServerService, LiveChatService]
