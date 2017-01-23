@@ -12,6 +12,11 @@ export class bookingRequestUserDetailsComponent implements OnInit{
 
     bookingRequest;
 
+    star: number;
+    guests;
+    rooms;
+    stars;
+
     constructor(
             private _navCtrl: NavController, 
             private _navParams: NavParams){
@@ -20,6 +25,20 @@ export class bookingRequestUserDetailsComponent implements OnInit{
 
     ngOnInit(){
         this.bookingRequest = this._navParams.get('bookingRequest');
+        this.star = this.bookingRequest.stars.indexOf(true);
+        console.log('STAR', this.star);
+        
+        this.star++;
+        console.log('STAR', this.star);
+        this.stars = [];
+
+        for(let _i: number = 0; _i < this.star; _i++ )
+                this.stars.push(true);
+
+        this.guests = this.bookingRequest.guests.toString().substr(0,1);
+        this.rooms = this.bookingRequest.guests.toString().substr(1,1);
+        console.log('guests: ', this.guests, ' rooms: ', this.rooms);
+        
     }
 
     next(){

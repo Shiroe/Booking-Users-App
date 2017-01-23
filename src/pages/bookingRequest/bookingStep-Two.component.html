@@ -17,15 +17,12 @@
         <ion-item>
             <ion-label>HOW MANY?</ion-label>
             <ion-select class="dropdown" [(ngModel)]="bookingRequest.guests">
-                <ion-option value="1">1 Guest (1 Room)</ion-option>
-                <ion-option value="1">2 Guests (1 Room)</ion-option>
-                <ion-option value="2">2 Guests (2 Rooms)</ion-option>
-                <ion-option value="2">3 Guests (2 Rooms)</ion-option>
-                <ion-option value="3">3 Guests (3 Rooms)</ion-option>
-                <ion-option value="1">4 Guests (1 Room)</ion-option>
-                <ion-option value="2">4 Guests (2 Rooms)</ion-option>
-                <ion-option value="2">5 Guests (2 Rooms)</ion-option>
-                <ion-option value="3">6 Guests (3 Rooms)</ion-option>
+                <ion-option value="11">1 Person</ion-option>
+                <ion-option value="21">2 Persons (1 Room)</ion-option>
+                <ion-option value="22">2 Persons (2 Rooms)</ion-option>
+                <ion-option value="33">3 Persons (3 Rooms)</ion-option>
+                <ion-option value="42">4 Guests (2 Room)</ion-option>
+                <ion-option value="44">4 Guests (4 Rooms)</ion-option>
             </ion-select>
         </ion-item>
     </div>
@@ -46,7 +43,7 @@
             </ion-row>
         </div>
     </div>
-    <div class="bottomSectionBtn" (click)="next()">
+    <div class="bottomSectionBtn" (click)="next(bookingRequest)">
         <button ion-button class="button-block" large outline color="default" outline>Next</button>
     </div>
 </ion-content>

@@ -2,6 +2,7 @@
 export class UserDetails {
     email: string
     name: string
+    phone: number
     payment: PaymentDetails
 }
 
@@ -16,10 +17,12 @@ export class PaymentDetails {
 export class BookingRequest {
     price: Number
     location: string
+    country: string
     guests: Number
-    checkIn: string //or Date
-    checkOut: string //or Date
-    stars: Array<Number>
+    checkin: string //or Date
+    checkout: string //or Date
+    distance: Number
+    stars: Array<Boolean>
     wifi: boolean
     pool: boolean
     total_cost? : Number

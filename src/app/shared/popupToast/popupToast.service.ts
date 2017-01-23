@@ -12,6 +12,10 @@ export class PopupToastService {
         this._presentToast('This feature is not yet available', pos);
     }
 
+    alert(text: string, pos: string){
+        this._presentToast(text, pos);
+    }
+
     private _presentToast(text: string, pos: string) {
         let toast = this._toastController.create({
             message: text,

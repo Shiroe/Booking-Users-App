@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core'
 
 import { NavController, NavParams } from 'ionic-angular';
 
+import { BookingComponent } from '../booking/booking.component';
+
 @Component({
     selector: 'bookingRequest-confirm',
     templateUrl: './bookingRequestUserDetailsConfirmation.component.html'
@@ -21,7 +23,7 @@ export class bookingRequestUserDetailsConfirmationComponent implements OnInit{
 
     next(){
         console.log('final request', this.bookingRequest);
-        // this._navCtrl.push(, { bookingRequest: this.bookingRequest });
+        this._navCtrl.push(BookingComponent, { bookingRequest: this.bookingRequest });
     }
 
     back(){

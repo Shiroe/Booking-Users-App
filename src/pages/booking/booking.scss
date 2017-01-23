@@ -1,0 +1,44 @@
+booking-view{
+
+    background-image: url('../assets/images/bg-confirmation-page.jpg');
+	background-size: cover;
+    background-position: top center;
+	background-repeat: no-repeat;
+    overflow: auto;
+
+    .md ion-toolbar{
+        height: 56px !important;
+    }
+
+    .ios ion-toolbar{
+        height: 75px !important;
+    }
+
+    ion-content{
+        background-color: transparent !important;
+    }
+
+    div.booking-request{
+        font-size: 20px;
+        line-height: 24px;
+        background-color: #fff;
+    }
+
+    div h3.heading{
+        font-size: 26px;
+        line-height: 30px;
+        color: #f33617;
+        font-family: "Stardos Stencil" serif;
+    }
+
+    div.payment-method{
+        margin-top: 30px;
+        background-color: #fff;
+    }
+
+    div.card-details{
+        background-color: #fefefe;
+    }
+
+
+}

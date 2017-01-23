@@ -16,7 +16,7 @@
 
 	<ion-list>
 		<!--<booking-row *ngFor="let b of bookings"></booking-row>-->
-		<ion-card *ngFor="let b of bookings" padding>
+		<ion-card *ngFor="let b of bookings" (click)="viewBooking()" padding>
 			<ion-row>
 				<div class="card-title" text-left>{{ b.destination }}</div>
 				<div class="card-subtitle" text-right><span class="{{b.status | lowercase}}">{{ b.status }}</span></div>

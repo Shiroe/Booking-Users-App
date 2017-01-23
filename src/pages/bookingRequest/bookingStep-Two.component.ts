@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 // import { LiveChatService } from '../../app/shared/livechat/livechat.service';
 import { BookingStepThree } from './bookingStep-Three.component'
+import { BookingRequest } from './bookingRequest';
+import { BookingRequestService } from './bookingRequest.service';
 
 @Component({
     selector: 'bookingStep-Two',
@@ -10,11 +12,12 @@ import { BookingStepThree } from './bookingStep-Three.component'
 })
 export class BookingStepTwo implements OnInit{
 
-    bookingRequest;
+    bookingRequest = new BookingRequest();
 
     constructor(
             private _navCtrl: NavController, 
-            private _navParams: NavParams){
+            private _navParams: NavParams, 
+            private _bookingRequestService: BookingRequestService){
 
     }
 
@@ -25,9 +28,12 @@ export class BookingStepTwo implements OnInit{
         
     }
 
-    next(){
-        console.log('next step');
-        
-        this._navCtrl.push(BookingStepThree, { bookingRequest: this.bookingRequest });
+    next(booking: BookingRequest){
+        console.log('next step', this.bookingRequest);
+
+        if(this._bookingRequestService.validateStepTwo(booking))
+                this._navCtrl.push(BookingStepThree, { bookingRequest: this.bookingRequest });
+
+        return false;
     }
 }

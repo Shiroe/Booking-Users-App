@@ -1,3 +1,8 @@
+
+ion-icon#close{
+    z-index: 999 !important;
+}
+
 bookingRequest-details{
     ion-content { 
         background-color: #f4f4f4 !important;
@@ -42,9 +47,9 @@ bookingRequest-details{
         width: 100%;
     }
 
-    ion-row span.left{
-        // margin-right: auto;
-    }
+    // ion-row span.left{
+    //     margin-right: auto;
+    // }
 
     ion-row span.right{
         color: #f33617;
@@ -106,4 +111,18 @@ bookingRequest-confirm{
         margin-left: auto;
         margin-right: auto;
     }
+
+    div.detailsContainer input {
+        border: none !important;    
+    }
+    div.detailsContainer .item-inner {
+        border: none !important;
+        box-shadow: none !important;    
+    }
+
+    div.detailsContainer ion-item#ccv{
+        margin-left: 10px !important;
+    }
+
+    
 }

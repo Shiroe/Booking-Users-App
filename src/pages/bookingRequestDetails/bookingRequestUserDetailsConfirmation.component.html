@@ -3,29 +3,32 @@
     <div padding class="headerContainer">
         <ion-row>
             <h3 width-80>Your details</h3>
-            <ion-icon name="close" (click)="back()"></ion-icon>
+            <ion-icon id="close" name="close" (click)="back()"></ion-icon>
         </ion-row>
     </div>
     <span class="redlinedivider"></span>
     <div class="detailsContainer">
         <ion-item>
-            <ion-input placeholder="Email" type="text" [(ngModel)]="bookingRequest.location"></ion-input>
+            <ion-input placeholder="Email" type="email" [(ngModel)]="email"></ion-input>
         </ion-item>
         <ion-item>
-            <ion-input placeholder="Name" type="text" [(ngModel)]="bookingRequest.location"></ion-input>
+            <ion-input placeholder="Name" type="text" [(ngModel)]="name"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-input placeholder="Phone" type="number" [(ngModel)]="phone"></ion-input>
         </ion-item>
         <p>
-            We do NOT store your credit card info. Your credit will NOT be charged, unless we are anle to find you a hotel matching your request.
+            We do NOT store your credit card info. Your credit will NOT be charged, unless we are able to find you a hotel matching your request.
         </p>
-        <ion-item>
-            <ion-input placeholder="Card number" type="text" [(ngModel)]="bookingRequest.location"></ion-input>
+        <ion-item id="card-number">
+            <ion-input placeholder="Card number" type="number" [(ngModel)]="card_number"></ion-input>
         </ion-item>
         <ion-row>
-            <ion-item width-40>
-                <ion-input placeholder="Expiry date" type="text" [(ngModel)]="bookingRequest.location"></ion-input>
+            <ion-item width-40 id="exp-date">
+                <ion-input placeholder="Expiry date" type="text" [(ngModel)]="card_expiry"></ion-input>
             </ion-item>
-            <ion-item width-40>
-                <ion-input placeholder="Security code" type="text" [(ngModel)]="bookingRequest.location"></ion-input>
+            <ion-item width-40 id="ccv">
+                <ion-input placeholder="CCV" type="number" [(ngModel)]="card_cvv"></ion-input>
             </ion-item>
         </ion-row>
     </div>

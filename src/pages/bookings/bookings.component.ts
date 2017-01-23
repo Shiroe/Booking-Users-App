@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { NavController } from 'ionic-angular';
 
+import { BookingComponent } from '../booking/booking.component';
 import { BookingsService } from './bookings.service';
 
 @Component({
@@ -26,5 +27,9 @@ export class BookingsComponent implements OnInit{
 
 	addNewBooking(){
 		this._bookingsService.addNewBooking('a12312xdfas', 'asda@sa.cs');
+	}
+
+	viewBooking(){
+		this._navCtrl.push(BookingComponent, {});
 	}
 }

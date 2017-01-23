@@ -21,7 +21,7 @@
             <!--<ion-label stacked>$</ion-label>-->
             <ion-row>
                 <ion-col class="input" width-50 offset-25>
-                    <input type="text" [(ngModel)]="bookingRequest.price" ng-required="true"/>
+                    <input type="number" [(ngModel)]="bookingRequest.price" ng-required="true"/>
                 </ion-col>
                 <ion-col class="symbol" width-10>
                     <ion-icon name="logo-euro"></ion-icon>
@@ -53,7 +53,7 @@
             </ion-item>
         </div>
     </div>
-    <div class="bottomSectionBtn" (click)="next()">
+    <div class="bottomSectionBtn" (click)="next(bookingRequest)">
         <button ion-button class="button-block" large outline color="default" outline>Next</button>
     </div>
 </ion-content>

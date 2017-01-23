@@ -26,15 +26,15 @@
         </ion-row>
         <ion-row>
             <span class="left" width-50>Guests</span>
-            <span class="right" width-50>{{ bookingRequest.guests }}</span>
+            <span class="right" width-50>{{ guests }}</span>
         </ion-row>
         <ion-row>
             <span class="left" width-50>Rooms</span>
-            <span class="right" width-50>{{ bookingRequest.guests }}</span>
+            <span class="right" width-50>{{ rooms }}</span>
         </ion-row>
         <ion-row>
             <span class="left" width-50>Hotels stars</span>
-            <span class="right" width-50>Hotels stars</span>
+            <span class="right" width-50><ion-icon name="star" *ngFor="let s of stars"></ion-icon><ion-icon style="margin-left: 5px" name="add" *ngIf="star < 5"></ion-icon></span>
         </ion-row>
         <ion-row>
             <span class="left" width-50>Wifi</span>
