@@ -32,7 +32,7 @@
             <h2>Check In / Check Out</h2>
         </div>
         <div class="inputContainer" text-center>
-            <!--<ion-label stacked>Destination</ion-label>-->
+            <ion-label stacked>Destination</ion-label>
             <ion-row>
                 <ion-col width-50>
                     <input type="date"  [(ngModel)]="bookingRequest.checkin"/>
@@ -42,8 +42,9 @@
                 </ion-col>
             </ion-row>
         </div>
+        <!--<ab-dateRange></ab-dateRange>-->
     </div>
     <div class="bottomSectionBtn" (click)="next(bookingRequest)">
-        <button ion-button class="button-block" large outline color="default" outline>Next</button>
+        <button ion-button class="button-block" large outline color="default" outline>FIND MY OPTIONS</button>
     </div>
 </ion-content>

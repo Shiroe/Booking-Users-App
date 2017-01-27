@@ -10,6 +10,7 @@ import { NavController } from 'ionic-angular';
 export class BookingComponent implements OnInit{
 
 	bookings;
+	isConfirm: Boolean = true;
 
 	constructor(
 			public _navCtrl: NavController) {

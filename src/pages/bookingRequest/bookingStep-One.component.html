@@ -37,20 +37,20 @@
         <div>
             <ion-item>
                 <ion-label>WHERE TO?</ion-label>
-                <ion-select class="dropdown" [(ngModel)]="bookingRequest.country">
+                <ion-select class="dropdown" [(ngModel)]="bookingRequest.country" (ionChange)="countryChanged(bookingRequest.country)">
                     <!--<ion-option value="" selected="true">Country..</ion-option>-->
-                    <ion-option value="Greece">Greece</ion-option>
-                    <ion-option value="France">France</ion-option>
-                    <ion-option value="Usa">Usa</ion-option>
+                    <ion-option value="GR" selected="selected">Greece</ion-option>
+                    <ion-option value="FR">France</ion-option>
+                    <ion-option value="US">Usa</ion-option>
                 </ion-select>
             </ion-item>
         </div>
         <div class="inputContainer" text-center>
             <ion-item>
                 <ion-label>SOMEWHERE SPECIFIC?</ion-label>
-                <ion-input placeholder="Text Input" type="text" [(ngModel)]="bookingRequest.location"></ion-input>
-                <!--<input type="text" [(ngModel)]="bookingRequest.location" ng-required="true"/>-->
+                <!--<ion-input [(ngModel)]="bookingRequest.location" (focus)="scrollTop()"  autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl"></ion-input>-->
             </ion-item>
+            <input [(ngModel)]="bookingRequest.location" (focus)="scrollTop()"  autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl"/>
         </div>
     </div>
     <div class="bottomSectionBtn" (click)="next(bookingRequest)">

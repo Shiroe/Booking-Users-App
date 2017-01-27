@@ -17,61 +17,97 @@
 </ion-header>
 
 <ion-content padding>
+  <div class="booking-confirmation" padding text-center *ngIf="isConfirm">
+      <!--<button color="secondary" class="successButton" ion-button icon-only>-->
+        <div class="successButton" style="width: 50px; display: block;">
+            <ion-icon name="checkbox" style="display: block;"></ion-icon>
+        </div>
+      <!--</button>-->
+      <h3 padding text-center>
+        GREAT! <br/> Your request has been successfully submitted!
+      </h3>
+      <span padding text-center>You will get notified when a hotel owner accepts your request</span>
+  </div>
   <div class="booking-request" padding text-left>
-    <h3 class="heading">
-      Your booking request
-    </h3>
-    <span>Your card will be charged, <br/> ONLY IF your request is accepted.</span>
-    <span class="redline"></span>
-    <ion-row>
-      <span>Reference #</span>
-      <span>ref32478dhud</span>
+    <div class="head-container" text-center>
+      <h3 class="heading">
+        Your booking request
+      </h3>
+      <span>Your card will be charged, <br/> ONLY IF your request is accepted.</span>
+    </div>
+    <span class="redline"> </span>
+    <ion-row class="ref-section">
+      <span class="left-title">Reference #</span>
+      <span class="right-value">ref32478dhud</span>
     </ion-row>
-    <ion-row>
-      <span>Status</span>
-      <span>Unclaimed</span>
-    </ion-row>
-    <span class="redline"></span>
-    <ion-row>
-      <span>Room price</span>
-      <span>&euro; 34.00</span>
-    </ion-row>
-    <ion-row>
-      <span>Location</span>
-      <span>Paros, Greece</span>
-    </ion-row>
-    <ion-row>
-      <span>Check-In</span>
-      <span>Jun 29, 2017</span>
-    </ion-row>
-    <ion-row>
-      <span>Check-Out</span>
-      <span>Jul 09, 2017</span>
-    </ion-row>
-    <ion-row>
-      <span>Guests</span>
-      <span>2</span>
-    </ion-row>
-    <ion-row>
-      <span>Hotel stars</span>
-      <ion-icon name="star" *ngFor="let s of [1,2,3]"></ion-icon>
-    </ion-row>
-    <ion-row>
-      <span>Wifi</span>
-      <span>Yes</span>
-    </ion-row>
-    <ion-row>
-      <span>Pool</span>
-      <span>Not required</span>
+    <ion-row class="ref-section">
+      <span class="left-title">Status</span>
+      <span class="right-value">Unclaimed</span>
     </ion-row>
     <span class="redline"></span>
     <ion-row>
-      <span>Total cost</span>
-      <span>&euro; 240.00</span>
+      <span class="left-title">Room price</span>
+      <span class="right-value">&euro; 34.00</span>
+    </ion-row>
+    <ion-row>
+      <span class="left-title">Location</span>
+      <span class="right-value">Paros, Greece</span>
+    </ion-row>
+    <ion-row>
+      <span class="left-title">Check-In</span>
+      <span class="right-value">Jun 29, 2017</span>
+    </ion-row>
+    <ion-row>
+      <span class="left-title">Check-Out</span>
+      <span class="right-value">Jul 09, 2017</span>
+    </ion-row>
+    <ion-row>
+      <span class="left-title">Guests</span>
+      <span class="right-value">2</span>
+    </ion-row>
+    <ion-row>
+      <span class="left-title">Hotel stars</span>
+      <ion-icon  class="right-value" name="star" *ngFor="let s of [1,2,3]"></ion-icon>
+    </ion-row>
+    <ion-row>
+      <span class="left-title">Wifi</span>
+      <span class="right-value">Yes</span>
+    </ion-row>
+    <ion-row>
+      <span class="left-title">Pool</span>
+      <span class="right-value">Not required</span>
+    </ion-row>
+    <span class="redline"></span>
+    <ion-row class="total-cost">
+      <span class="total-title">Total cost</span>
+      <span class="total-value">&euro; 240.00</span>
+    </ion-row>
+    <div class="time-remaining-title">
+      <span >TIME LEFT TO ACCEPT YOUR REQUEST</span>
+    </div>
+  </div>
+  <div class="time-remaining" text-center padding>
+    <ion-row>
+      <div class="remaining-container">
+        <span class="remaining-value">00</span>
+        <span class="remaining-title">days</span>
+      </div>
+      <div class="remaining-container">
+        <span class="remaining-value">10</span>
+        <span class="remaining-title">hours</span>
+      </div>
+      <div class="remaining-container">
+        <span class="remaining-value">30</span>
+        <span class="remaining-title">minutes</span>
+      </div>
+      <div class="remaining-container">
+        <span class="remaining-value">20</span>
+        <span class="remaining-title">seconds</span>
+      </div>
     </ion-row>
   </div>
 
-  <div class="payment-method" padding text-left>
+  <div class="payment-method" padding text-center>
     <h3 class="heading">
       Your payment <br/> method
     </h3>
@@ -81,12 +117,16 @@
        from our system after transaction, or expiration of this request.
     </p>
   </div>
-  <div class="card-details">
-    <span>
+  <div class="card-details" text-center padding>
+    <span class="card-img">
       <ion-icon name="card"></ion-icon>
     </span>
-    <span> **** **** **** 1111 </span>
-    <button ion-button color="default" class="button-block" large clear><ion-icon name="create" left></ion-icon><span>EDIT</span></button>
+    <span class="card-number"> **** **** **** 1111 </span>
+    <button ion-button color="default" class="button-block edit-btn" large clear><ion-icon name="create" left></ion-icon><span>EDIT</span></button>
+  </div>
+
+  <div class="cancel-button" style="background-color: transparent;" text-center>
+    <button ion-button color="default" class="button-block" large><span>Cancel your booking request</span></button>
   </div>
 
 </ion-content>

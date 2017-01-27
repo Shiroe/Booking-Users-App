@@ -16,6 +16,7 @@ export class bookingRequestUserDetailsComponent implements OnInit{
     guests;
     rooms;
     stars;
+    total: number;
 
     constructor(
             private _navCtrl: NavController, 
@@ -37,6 +38,10 @@ export class bookingRequestUserDetailsComponent implements OnInit{
 
         this.guests = this.bookingRequest.guests.toString().substr(0,1);
         this.rooms = this.bookingRequest.guests.toString().substr(1,1);
+        let chIn = this.bookingRequest.checkin.split('-');
+        let chOut = this.bookingRequest.checkout.split('-');
+        let days = Number(chOut[2]) - Number(chIn[2]); 
+        this.total = this.bookingRequest.price *  days;
         console.log('guests: ', this.guests, ' rooms: ', this.rooms);
         
     }

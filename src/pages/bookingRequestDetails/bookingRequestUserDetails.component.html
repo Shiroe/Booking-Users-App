@@ -49,7 +49,7 @@
         <h3 width-80>Total Cost</h3>
     </div>
     <span class="redlinedivider"></span>
-    <span class="total-price">&euro; 240,00</span>
+    <span class="total-price"> {{ total | currency: 'EUR': true}}</span>
     <div class="bottomSectionBtn" (click)="next()">
         <button ion-button class="button-block" large outline color="default" outline>PROCEED TO CHECKOUT</button>
     </div>

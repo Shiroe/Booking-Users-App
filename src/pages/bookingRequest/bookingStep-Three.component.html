@@ -14,12 +14,29 @@
 
 <ion-content class="stepsContainer" padding text-center>
     <div class="" text-center>
-        <div>
-            <h2 class="heading" id="hotelResultsHeading">3 Hotels Found</h2>
-        </div>        
+        <ion-row>
+            <h2 clas="hotelResultsHeading heading-number">3</h2>
+            <h2 class="hotelResultsHeading">Hotels Found</h2>
+        </ion-row>        
         
     </div>
-    <div id="map" class="mapContainer">
+    <div class="mapContainer">
+        <sebm-google-map #map 
+                [latitude]="LatLng.lat" 
+                [longitude]="LatLng.lng" 
+                [draggable]="false" 
+                [zoom]="zoom" 
+                [mapDraggable]="false" 
+                [streetViewControl]="false" 
+                [disableDefaultUI]="true" 
+                [disableDoubleClickZoom]="true"
+                [scrollwheel]="false"
+                [zoomControl]="false"
+                [usePanning]="false"
+                [styles]="mapStyles"
+                 >
+            <!--<sebm-google-map-marker [latitude]="lat" [longitude]="lng"></sebm-google-map-marker>-->
+        </sebm-google-map>
         <div class="glassfilter"></div>
     </div>
     <div class="stepThreeConfigs" text-center>

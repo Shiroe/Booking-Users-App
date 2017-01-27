@@ -1,5 +1,6 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 import { MyApp } from './app.component';
 
@@ -19,11 +20,15 @@ import { BookingStepThree } from '../pages/bookingRequest/bookingStep-Three.comp
 import { bookingRequestUserDetailsComponent }             from '../pages/bookingRequestDetails/bookingRequestUserDetails.component';
 import { bookingRequestUserDetailsConfirmationComponent } from '../pages/bookingRequestDetails/bookingRequestUserDetailsConfirmation.component';
 import { BookingRequestService }                          from '../pages/bookingRequest/bookingRequest.service';
+import { DateRangePickerService }                         from './shared/dateRangePicker/dateRangePicker.service';
 
-import { LiveChatBubbleComponent }  from './shared/livechat/livechat.component';
-import { HomeButtonComponent }      from './shared/home-button/homebutton.component';
-import { PopupToastService }        from './shared/popupToast/popupToast.service';
-import { GoogleMapsService }        from './shared/googleMaps/google-maps.service';
+import { DateRangePickerComponent }               from './shared/dateRangePicker/dateRangePicker.component'
+import { LiveChatBubbleComponent }                from './shared/livechat/livechat.component';
+import { HomeButtonComponent }                    from './shared/home-button/homebutton.component';
+import { PopupToastService }                      from './shared/popupToast/popupToast.service';
+import { GoogleMapsService }                      from './shared/googleMaps/google-maps.service';
+import { AgmCoreModule, GoogleMapsAPIWrapper }    from 'angular2-google-maps/core';
+// import { GooglePlacesAutocompleteService }        from './shared/placesAutocomplete/googlePlacesAutocomplete.service'
 
 @NgModule({
   declarations: [
@@ -38,10 +43,17 @@ import { GoogleMapsService }        from './shared/googleMaps/google-maps.servic
     bookingRequestUserDetailsComponent,
     bookingRequestUserDetailsConfirmationComponent,
     LiveChatBubbleComponent,
-    HomeButtonComponent
+    HomeButtonComponent,
+    DateRangePickerComponent
   ],
   imports: [
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCOXN-KFDrJDzuKU7hv2kROt5iT5hKjDzk',
+      libraries: ["places"]
+    }),
+    FormsModule, 
+    ReactiveFormsModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -56,7 +68,8 @@ import { GoogleMapsService }        from './shared/googleMaps/google-maps.servic
     bookingRequestUserDetailsComponent,
     bookingRequestUserDetailsConfirmationComponent,
     LiveChatBubbleComponent,
-    HomeButtonComponent
+    HomeButtonComponent,
+    DateRangePickerComponent
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, 
     PopupToastService, 
@@ -64,7 +77,10 @@ import { GoogleMapsService }        from './shared/googleMaps/google-maps.servic
     BookingRequestService, 
     ServerService, 
     LiveChatService, 
-    GoogleMapsService
+    GoogleMapsService,
+    GoogleMapsAPIWrapper,
+    DateRangePickerService,
+    // GooglePlacesAutocompleteService
   ]
 })
 export class AppModule {}

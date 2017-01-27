@@ -18,27 +18,235 @@ booking-view{
         background-color: transparent !important;
     }
 
+    div.booking-request, div.time-remaining, div.payment-method, div.card-details, div.cancel-button{
+        max-width: 660px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .booking-confirmation{
+        position: relative;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: 0;
+        padding: 0;
+        z-index: -1;
+        color: #fff;
+        margin-left: -20px;
+        margin-right: -20px;
+        margin-top: -20px;
+        padding-bottom: 40px !important;
+        background-color: #3da766 !important;
+    }
+
+    .successButton{
+        box-shadow: none;
+        color: #444;
+        background-color: transparent;
+        font-size: 3.2rem;
+        font-weight: 500;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    div.cancel-button{
+        background-color: transparent;
+    }
+
+    div.cancel-button button{
+        padding: 0px;
+        margin: 0;
+        margin-top: 30px;
+        margin-bottom: 20px;
+    }
+
+    div.booking-confirmation h3{
+        font-size: 26px;
+        line-height: 30px;
+        margin-bottom: 10px !important;
+        margin-top: 0px !important;
+    }
+    div.booking-confirmation span{
+        font-size: 20px;
+        line-height: 24px;
+    }
+
+    div.booking-request span{
+        font-size: 18px;
+        line-height: 24px;
+    }
+
     div.booking-request{
+        margin-top: -20px !important;
         font-size: 20px;
         line-height: 24px;
         background-color: #fff;
     }
 
-    div h3.heading{
-        font-size: 26px;
-        line-height: 30px;
+    div.head-container span{
         color: #f33617;
-        font-family: "Stardos Stencil" serif;
+        font-size: 20px;
+        line-height: 24px;
     }
 
+    div h3.heading{
+        font-size: 36px;
+        line-height: 44px;
+        color: #f33617;
+        font-family: "Stardos Stencil", serif;
+        margin-top: 20px !important;
+    }
+
+    //REDLINE DIVIDER
+    span.redline{
+        margin-top: 20px;
+        margin-bottom: 20px;
+        width: 100%;
+        display: block;
+        background-color: #f33617;
+        height: 5px;
+    }
+    //END OF REDLINE DIVIDER
+
+
+    //START OF ION-ROWS (BOOKING DETAILS-VALUES)
+    .booking-request ion-row{
+        margin-bottom: 5px;
+    }
+
+    .left-title{
+        width: 45%;
+        padding-left: 15px;
+        // margin-right: auto;
+    }
+
+    .right-value{
+        color: #f33617;
+    }
+    //END OF ION ROWS (BOOKING DETAILS-VALUES)
+
+    //START OF REFERENCE SECTION
+    .ref-section .left-title{
+        line-height: 24px;
+        font-size: 18px;
+        color: #222;
+        font-family: "Dosis", sans-serif;
+        -webkit-font-smoothing: antialiased;
+        text-align: left;
+        font-weight: 600;
+    }
+    .ref-section .right-value{
+        text-align: left;
+        font-weight: 600;
+        color: #f33617;
+    }
+    //END OF REFERENCE SECTION
+
+    //START OF PAYMENT METHOD
     div.payment-method{
         margin-top: 30px;
         background-color: #fff;
     }
 
-    div.card-details{
-        background-color: #fefefe;
+    div.payment-method p{
+        color: #f33617;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 24px;
     }
 
+    //START OF CARD DETAILS
+    div.card-details{
+        background-color: #f4f4f4;
+    }
+
+    div.card-details .card-img ion-icon{
+        font-size: 40px;
+        line-height: 44px;
+    }
+
+    div.card-details span{
+        display: block;
+        font-size: 22px;
+        line-height: 26px;
+    }
+
+    div.card-details span.card-number{
+        margin-top: 10px;
+        font-size: 24px;
+        line-height: 26px;
+    }
+
+    div.card-details button.edit-btn span{
+        display: inline-block;
+        padding: 5px;
+        margin-left: 10px;
+    }
+    //END OF CARD DETAILS
+    //END OF PAYMENT METHOD
+
+    //START OF TOTAL COST
+    div.booking-request ion-row.total-cost{
+        width: 90% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        margin-bottom: 30px;
+    }
+
+    div.booking-request ion-row.total-cost span.total-title{
+        width: 50% !important;
+        font-size: 24px !important;
+        // font-weight: 300 !important;
+    }
+
+    div.booking-request ion-row.total-cost span.total-value{
+        text-align: right !important;
+        margin-left: auto !important;
+        font-size: 24px;
+        font-weight: bold;
+    }
+    //END OF TOTAL COST 
+
+    //START OF RED BOX WITH TIME REMAINING
+    div.booking-request div.time-remaining-title{
+        width: 100%;
+        text-align: center;
+    }
+
+    div.booking-request div.time-remaining-title span{
+        color: #f33617;
+        font-weight: bold;
+        width: 100%;
+    }
+
+    div.time-remaining{
+        background-color: #f33617;
+        height: 150px;
+    }
+
+    div.time-remaining .remaining-container{
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 20px;
+    }
+
+    div.time-remaining .remaining-container span{
+        color: #fff;
+        display: block;
+    }
+
+    div.time-remaining .remaining-container span.remaining-value{
+        font-family: "Stardos Stencil", serif;
+        font-weight: bold;
+        font-size: 36px;
+        line-height: 40px;
+    }
+    div.time-remaining .remaining-container span.remaining-title{
+        margin-top: 10px;
+        font-size: 20px;
+        line-height: 24px;
+    }
+    //END OF RED BOX WITH TIME REMAINING
 
 }
