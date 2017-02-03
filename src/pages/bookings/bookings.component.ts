@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
-import { NavController } from 'ionic-angular';
+import { ModalController,NavController } from 'ionic-angular';
 
 import { BookingComponent } from '../booking/booking.component';
 import { BookingsService } from './bookings.service';
+import { BookingModalComponent} from './bookingModal.component';
 
 @Component({
 	selector: 'bookings-view',
@@ -15,7 +16,8 @@ export class BookingsComponent implements OnInit{
 
 	constructor(
 			public _navCtrl: NavController, 
-			private _bookingsService: BookingsService) {
+			private _bookingsService: BookingsService, 
+			private _modalCtrl: ModalController) {
 	}
 
 	ngOnInit(){
@@ -25,11 +27,17 @@ export class BookingsComponent implements OnInit{
 		// 					 .subscribe(bookings => this.bookings = bookings);
 	}
 
+
 	addNewBooking(){
-		this._bookingsService.addNewBooking('a12312xdfas', 'asda@sa.cs');
+		let bookingModal = this._modalCtrl.create(BookingModalComponent,{}, {showBackdrop: true, });
+		bookingModal.onDidDismiss(data => {
+			console.log(data);
+		});
+		bookingModal.present();
+		// this._bookingsService.addNewBooking('test@test.com', 'ref9713cb').subscribe( booking => console.log('booking: ', booking));
 	}
 
 	viewBooking(){
-		this._navCtrl.push(BookingComponent, {});
+		this._navCtrl.push(BookingComponent, { isNew: false});
 	}
 }

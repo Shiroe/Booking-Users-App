@@ -12,8 +12,8 @@ export class BookingsService{
 		return this._serverService.getBookings();
 	}
 
-	addNewBooking( bookingRef: string,  userEmail: string){
-		this._serverService.addNewBooking();
+	addNewBooking( userEmail: string, bookingRef: string){
+		return this._serverService.addNewBooking(userEmail, bookingRef);
 
 		//This should handle the booking ref and user mail 
 		// as object to the ServerService .addNew()

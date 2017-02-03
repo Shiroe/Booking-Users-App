@@ -2,7 +2,13 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons left>
-      <home-button></home-button>
+      <home-button *ngIf="isConfirm"></home-button>
+      <button *ngIf="!isConfirm" class="homeButton" color="light" ion-button icon-only (click)="back()">
+        <div style="width: 50px; display: block;">
+            <ion-icon name="arrow-round-back" style="display: block; color: #333;"></ion-icon>
+            <span style="display: block; color: #333;">Back</span>
+        </div>
+      </button>
     </ion-buttons>
 
     <ion-title text-center>
@@ -86,7 +92,8 @@
       <span >TIME LEFT TO ACCEPT YOUR REQUEST</span>
     </div>
   </div>
-  <div class="time-remaining" text-center padding>
+  <ab-countdown [expiration]="booking.expiration" [evaluate]="evaluate"></ab-countdown>
+  <!--<div class="time-remaining" text-center padding>
     <ion-row>
       <div class="remaining-container">
         <span class="remaining-value">00</span>
@@ -105,7 +112,7 @@
         <span class="remaining-title">seconds</span>
       </div>
     </ion-row>
-  </div>
+  </div>-->
 
   <div class="payment-method" padding text-center>
     <h3 class="heading">

@@ -23,7 +23,7 @@ export class bookingRequestUserDetailsConfirmationComponent implements OnInit{
 
     next(){
         console.log('final request', this.bookingRequest);
-        this._navCtrl.push(BookingComponent, { bookingRequest: this.bookingRequest });
+        this._navCtrl.push(BookingComponent, { bookingRequest: this.bookingRequest, isNew: true });
     }
 
     back(){
