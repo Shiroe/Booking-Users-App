@@ -1,47 +1,37 @@
- 
-        <!--<div>
-            <h2>Check In / Check Out</h2>
-            <ion-row>
-                <span>Check In</span>
-                <span>Check Out</span>
-            </ion-row>
+<div class="calendar-pre calendar-open" [ngClass]="{'calendar-open': openClendar}">
+    <div class="form-item check-in" (click)="openClendar = (bookingObj.location)">
+        <label for="">Check in</label>
+        <span class="calendar-field date-selected" style="margin-left: 10px;">{{checkinFormated}}</span>
+        <ion-icon name="checkmark" style="float: right; margin-right: 10px; color: green;" *ngIf="bookingObj.checkin"></ion-icon>
+    </div>
+    <div class="form-item check-out" (click)="openClendar = (bookingObj.location); setcheckout = true">
+        <label for="" class="">Check out</label>
+        <span class="calendar-field date-selected" style="margin-left: 10px;">{{checkoutFormated}}</span>
+        <ion-icon name="checkmark" style="float: right; margin-right: 10px; color: green;" *ngIf="bookingObj.checkout"></ion-icon>
+    </div>
+</div>
+<div class="calendar-main" >
+        <div class="mobile-months">
+            <ion-icon ios="ios-arrow-back" md="ios-arrow-back"></ion-icon>
+            <span class="month-shown">{{today}}</span>
+            <ion-icon ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+        </div>
+        <!--<div class="months">
+            <span class="month empty"></span>
+            <span class="month" *ngFor="let label of weekLabels">{{label.label}}</span> 
         </div>-->
-        <div class="calendar-pre calendar-open" [ngClass]="{'calendar-open': openClendar}">
-            <div class="form-item check-in" (click)="openClendar = (bookingObj.location)">
-                <label for="">Check in</label>
-                <span class="calendar-field date-selected ng-binding">Wed, 1 Feb</span>
-                <i class="material-icons check" *ngIf="bookingObj.checkin">check</i>
-            </div>
-            <div class="form-item arrow-icon">
-                <span class="calendar-field arrow inactive"><i class="material-icons">trending_flat</i></span>
-            </div>
-            <div class="form-item check-out" (click)="openClendar = (bookingObj.location); setcheckout = true">
-                <label for="" class="">Check out</label>
-                <span class="calendar-field date-selected ng-binding">Fri, 3 Feb</span>
-                <i class="material-icons check" *ngIf="bookingObj.checkout">check</i>
-            </div>
+        <div class="days">
+            <span class="day">Mon</span>
+            <span class="day">Tue</span>
+            <span class="day">Wed</span>
+            <span class="day">Thu</span>
+            <span class="day">Fri</span>
+            <span class="day">Sat</span>
+            <span class="day">Sun</span>
         </div>
-        <div class="calendar-main" >
-                <div class="mobile-months">
-                    <span class="month-prev"><i class="material-icons"></i></span>
-                    <span class="month-shown">December 16</span>
-                    <span class="month-next"><i class="material-icons"></i></span>
-                </div>
-                <div class="months">
-                    <span class="month empty"></span>
-                    <span class="month" *ngFor="let label of weekLabels">{{label}}</span> 
-                </div>
-                <div class="days">
-                    <span class="day">Mon</span>
-                    <span class="day">Tue</span>
-                    <span class="day">Wed</span>
-                    <span class="day">Thu</span>
-                    <span class="day">Fri</span>
-                    <span class="day">Sat</span>
-                    <span class="day">Sun</span>
-                </div>
-                <div class="dates">
-                    <span class="" *ngFor="let day of days">
-                    <span [ngClass]="getDayClasses(day)">{{day}}</span></span>
-                </div>
+        <div class="dates">
+            <span [ngClass]="(getDayClasses(day))" *ngFor="let day of days" (clicl)="selectDay(day)">
+                <span>{{day.dateNum}}</span>
+            </span>
         </div>
+</div>

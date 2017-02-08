@@ -208,22 +208,32 @@ bookingStep-Two{
     }
 
 
-    .calendar-pre.calendar-open {
+    .calendar-pre, .calendar-pre.calendar-open {
         border: 2px solid #f33617;
-        margin: 0 41px 0 39px;
+        // margin: 0 41px 0 39px;
     }
 
+    .calendar-pre .form-item:first-child,
     .calendar-pre.calendar-open .form-item:first-child {
-        padding-left: 0;
+        padding-left: 10px !important;
+        text-align: left;
+        border-bottom: 1px solid #f33617 !important;
     }
 
+    .calendar-pre .form-item:last-child,
     .calendar-pre.calendar-open .form-item:last-child {
-        padding-right: 0;
+        padding-left: 10px !important;
+        text-align: left;
+        border-top: 1px solid #f33617 !important;
     }
 
+    .calendar-pre .form-item,
     .calendar-pre.calendar-open .form-item {
-        padding: 0 38px;
-        position: relative;
+        height: 40px !important;
+        font-size: 20px !important;
+        line-height: 24px !important;
+        padding: 5px 0px !important;
+        position: relative !important;
     }
 
     .calendar-pre.calendar-open .form-item.check-out .check {
@@ -448,6 +458,30 @@ bookingStep-Two{
 }
 
 bookingStep-Three{
+
+    .stepsContainer .stepThreeConfigs .range-knob{
+        top: -22px !important;
+        left: 5px !important;
+        width: 38px !important;
+        height: 68px !important;
+        border: none !important;
+        border-radius: 0% !important;
+        background: transparent !important;
+        background-image: url(../assets/images/range-thumb-icon-2.png) !important;
+        background-repeat: no-repeat !important;
+    }
+    
+    .stepsContainer .stepThreeConfigs .range-pin{
+        top: 38px !important;
+        min-width: 30px !important;
+        height: 30px !important;
+        background: transparent !important;
+    }
+
+    .stepsContainer .stepThreeConfigs .range-pin::before{
+        border-radius: 50% 0% 50% 50% !important;
+    }
+
     div h2.hotelResultsHeading{
         font-size: 36px !important;
         line-height: 38px !important;

@@ -19,6 +19,17 @@ export class DateRangePickerComponent implements OnInit {
     openClendar;
     setCheckout;
     startOfWeek;
+	checkinFormated;
+	checkoutFormated;
+	settings = {
+		"checkin" : {"min": 0 ,"max":15},
+		"stay" : {"min": 1 ,"max":12}
+	};
+	today;
+	firstAvailDay;
+	lastActiveDay;
+	lastAvailDay;
+	// currentMonth;
 
     constructor(
         private _dateRangePickerService: DateRangePickerService
@@ -28,9 +39,29 @@ export class DateRangePickerComponent implements OnInit {
 
     ngOnInit(){
         // this.days = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30];
+		this.checkinFormated = this.formatDate(this.bookingObj.checkin);
+		this.checkoutFormated = this.formatDate(this.bookingObj.checkout);
+
+
+		this.today = moment().startOf('day').toDate();
+		// this.currentMonth = moment().startOf('month').toDate();
+		this.firstAvailDay = moment(this.today).add('days', this.settings.checkin.min).toDate();
+		this.lastActiveDay = moment(this.firstAvailDay).add('days', this.settings.checkin.max).toDate();
+		this.lastAvailDay = moment(this.lastActiveDay).add('days', this.settings.stay.max).toDate();
+
         this.days = this.getWeeks().weeks;
         this.weekLabels = this.getWeeks().labels;
         this.openClendar = false;
+
+		console.log('chInF: ', this.checkinFormated);
+		console.log('chOutF: ', this.checkoutFormated);
+		console.log('today: ', this.today);
+		console.log('firstAvailDay: ', this.firstAvailDay);
+		console.log('lastActiveDay: ', this.lastActiveDay);
+		console.log('lastAvailDay: ', this.lastAvailDay);
+		console.log('days: ', this.days);
+		console.log('weekLabels: ', this.weekLabels);
+		
     }
 
 
@@ -52,22 +83,11 @@ export class DateRangePickerComponent implements OnInit {
         })
 		// bookingService.selectDate(day, setcheckout); export date changed
 		if (this.bookingObj.checkin &&  this.bookingObj.checkout) {
+			this.checkinFormated = this.formatDate(this.bookingObj.checkin);
+			this.checkoutFormated = this.formatDate(this.bookingObj.checkout);
 			this.openClendar = false;
 		}
 	};
-
-	checkinFormated = this.formatDate;
-	checkoutFormated = this.formatDate;
-
-    settings = {
-		"checkin" : {"min": 0 ,"max":15},
-		"stay" : {"min": 1 ,"max":12}
-	};
-
-    today = moment().startOf('day').toDate();
-	firstAvailDay = moment(this.today).add('days', this.settings.checkin.min).toDate();
-	lastActiveDay = moment(this.firstAvailDay).add('days', this.settings.checkin.max).toDate();
-	lastAvailDay = moment(this.lastActiveDay).add('days', this.settings.stay.max).toDate();
 
     getWeekNo = function(day) {
 		return moment(day).isoWeek();

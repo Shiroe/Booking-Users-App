@@ -46,20 +46,32 @@ export class CountdownComponent implements OnInit, OnDestroy {
     this.futureString = this.expiration; //elm.nativeElement.getAttribute('expiration'); 
     this.future = new Date(this.futureString);
     console.log('future:', this.future);
-
+    this.expiration = 0;
+    this.evaluate = true;
     this.interv = Observable.interval(1000).map((x) => {
-      this.diff = this.expiration; //Math.floor((this.future.getTime() - new Date().getTime()) / 1000);
-    }).subscribe((x) => { 
-      if(this.diff < 0 || !this.evaluate){
-        console.log('EXPIRED');
-        this.diff = 0;
-        //this._navCtrl.pop();
+          this.diff = this.expiration; //Math.floor((this.future.getTime() - new Date().getTime()) / 1000);
+        });
+
+    if(this.expiration >= 0){
+        this.interv.subscribe((x) => { 
+          if(this.diff < 0 || !this.evaluate){
+            console.log('EXPIRED');
+            this.diff = 0;
+            //this._navCtrl.pop();
+          }
+          this.message = this.dhms(this.diff);
+        });
+    }else{
+      if(this.interv.unsubscribe){
+        this.interv.unsubscribe();
       }
-      this.message = this.dhms(this.diff);
-    });
+    }
+
   }
 
   ngOnDestroy(){
-    this.interv.unsubscribe();
+     if(this.interv.unsubscribe){
+        this.interv.unsubscribe();
+      }
   }
 }

@@ -31,6 +31,7 @@ import { HomeButtonComponent }                    from './shared/home-button/hom
 import { PopupToastService }                      from './shared/popupToast/popupToast.service';
 import { GoogleMapsService }                      from './shared/googleMaps/google-maps.service';
 import { CountdownComponent }                     from './shared/countdown/countdown.component';
+import { sebmGoogleMapComponent }                 from './shared/googleMaps/sebmGoogleMap.component';
 
 // import { GooglePlacesAutocompleteService }        from './shared/placesAutocomplete/googlePlacesAutocomplete.service'
 
@@ -50,7 +51,8 @@ import { CountdownComponent }                     from './shared/countdown/count
     HomeButtonComponent,
     DateRangePickerComponent,
     CountdownComponent,
-    BookingModalComponent
+    BookingModalComponent,
+    sebmGoogleMapComponent
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -78,7 +80,8 @@ import { CountdownComponent }                     from './shared/countdown/count
     HomeButtonComponent,
     DateRangePickerComponent,
     CountdownComponent,
-    BookingModalComponent
+    BookingModalComponent,
+    sebmGoogleMapComponent
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, 
     PopupToastService, 
