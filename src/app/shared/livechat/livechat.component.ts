@@ -17,6 +17,8 @@ export class LiveChatBubbleComponent{
     openModal(){
 		console.log('live chat bubble pressed');
 		this._liveChatService.openLiveChat();
+
+        //TODO
 	}
 
 }
