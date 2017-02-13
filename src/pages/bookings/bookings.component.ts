@@ -39,5 +39,6 @@ export class BookingsComponent implements OnInit{
 
 	viewBooking(){
 		this._navCtrl.push(BookingComponent, { isNew: false});
+		// this._navCtrl.push(BookingComponent, {booking: resp, email: this.email, reference: this.reference, isNew: false});
 	}
 }

@@ -44,32 +44,36 @@
     <span class="redline"> </span>
     <ion-row class="ref-section">
       <span class="left-title">Reference #</span>
-      <span class="right-value">ref32478dhud</span>
+      <span class="right-value">{{booking.ref}}</span>
     </ion-row>
-    <ion-row class="ref-section">
+    <ion-row class="ref-section" [ngSwitch]="booking.status">
       <span class="left-title">Status</span>
-      <span class="right-value">Unclaimed</span>
+      
+      <span class="right-value" *ngSwitchCase="0">Unclaimed</span>
+      <span class="right-value" *ngSwitchCase="1">Claimed</span>
+      <span class="right-value" *ngSwitchCase="2">Expired</span>
+      <span class="right-value" *ngSwitchCase="3">Canceled</span>
     </ion-row>
     <span class="redline"></span>
     <ion-row>
       <span class="left-title">Room price</span>
-      <span class="right-value">&euro; 34.00</span>
+      <span class="right-value">&euro; {{booking.room_price}}</span>
     </ion-row>
     <ion-row>
       <span class="left-title">Location</span>
-      <span class="right-value">Paros, Greece</span>
+      <span class="right-value">{{booking.city}}, {{booking.country}}</span>
     </ion-row>
     <ion-row>
       <span class="left-title">Check-In</span>
-      <span class="right-value">Jun 29, 2017</span>
+      <span class="right-value">{{booking.checkin}}</span>
     </ion-row>
     <ion-row>
       <span class="left-title">Check-Out</span>
-      <span class="right-value">Jul 09, 2017</span>
+      <span class="right-value">{{booking.checkout}}</span>
     </ion-row>
     <ion-row>
       <span class="left-title">Guests</span>
-      <span class="right-value">2</span>
+      <span class="right-value">{{booking.persons}}</span>
     </ion-row>
     <ion-row>
       <span class="left-title">Hotel stars</span>
@@ -77,43 +81,22 @@
     </ion-row>
     <ion-row>
       <span class="left-title">Wifi</span>
-      <span class="right-value">Yes</span>
+      <span class="right-value">{{booking.wifi}}</span>
     </ion-row>
     <ion-row>
       <span class="left-title">Pool</span>
-      <span class="right-value">Not required</span>
+      <span class="right-value">{{booking.pool}}</span>
     </ion-row>
     <span class="redline"></span>
     <ion-row class="total-cost">
       <span class="total-title">Total cost</span>
-      <span class="total-value">&euro; 240.00</span>
+      <span class="total-value">&euro; {{booking.price}}</span>
     </ion-row>
     <div class="time-remaining-title">
       <span >TIME LEFT TO ACCEPT YOUR REQUEST</span>
     </div>
   </div>
-  <ab-countdown [expiration]="booking.expiration" [evaluate]="evaluate"></ab-countdown>
-  <!--<div class="time-remaining" text-center padding>
-    <ion-row>
-      <div class="remaining-container">
-        <span class="remaining-value">00</span>
-        <span class="remaining-title">days</span>
-      </div>
-      <div class="remaining-container">
-        <span class="remaining-value">10</span>
-        <span class="remaining-title">hours</span>
-      </div>
-      <div class="remaining-container">
-        <span class="remaining-value">30</span>
-        <span class="remaining-title">minutes</span>
-      </div>
-      <div class="remaining-container">
-        <span class="remaining-value">20</span>
-        <span class="remaining-title">seconds</span>
-      </div>
-    </ion-row>
-  </div>-->
-
+  <ab-countdown [expiration]="booking.expires_in_secs" [evaluate]="evaluate"></ab-countdown>
   <div class="payment-method" padding text-center>
     <h3 class="heading">
       Your payment <br/> method
@@ -128,7 +111,7 @@
     <span class="card-img">
       <ion-icon name="card"></ion-icon>
     </span>
-    <span class="card-number"> **** **** **** 1111 </span>
+    <span class="card-number"> **** **** **** {{booking.card_last_digits}} </span>
     <button ion-button color="default" class="button-block edit-btn" large clear><ion-icon name="create" left></ion-icon><span>EDIT</span></button>
   </div>
 

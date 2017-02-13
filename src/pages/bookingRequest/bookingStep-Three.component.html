@@ -15,7 +15,7 @@
 <ion-content class="stepsContainer" padding text-center>
     <div class="" text-center>
         <ion-row>
-            <h2 clas="hotelResultsHeading heading-number">3</h2>
+            <h2 clas="hotelResultsHeading heading-number">{{hotelsFound}}</h2>
             <h2 class="hotelResultsHeading">Hotels Found</h2>
         </ion-row>        
         
@@ -54,13 +54,13 @@
             <!--<h2>Somewhere specific</h2>-->
             <ion-row>
                 <ion-item>
-                    <ion-checkbox color="default" [(ngModel)]="bookingRequest.stars[0]"></ion-checkbox>
+                    <ion-checkbox color="default" [(ngModel)]="bookingRequest.stars[0]" (click)="distanceChanged(bookingRequest.distance)"></ion-checkbox>
                     <ion-label>
                         <ion-icon name="star" [ngClass]="{'active': bookingRequest.stars[0]}"></ion-icon>
                     </ion-label>
                 </ion-item>
                 <ion-item style="margin-left: auto !important; margin-right: auto;">
-                    <ion-checkbox color="default" [(ngModel)]="bookingRequest.stars[1]"></ion-checkbox>
+                    <ion-checkbox color="default" [(ngModel)]="bookingRequest.stars[1]" (click)="distanceChanged(bookingRequest.distance)" ></ion-checkbox>
                     <ion-label>
                         <ion-icon name="star" [ngClass]="{'active': bookingRequest.stars[1]}"></ion-icon>
                         <ion-icon name="star" [ngClass]="{'active': bookingRequest.stars[1]}"></ion-icon>
@@ -69,7 +69,7 @@
             </ion-row>
             <ion-row>
                 <ion-item>
-                    <ion-checkbox color="default" [(ngModel)]="bookingRequest.stars[2]"></ion-checkbox>
+                    <ion-checkbox color="default" [(ngModel)]="bookingRequest.stars[2]" (click)="distanceChanged(bookingRequest.distance)"></ion-checkbox>
                     <ion-label>
                         <ion-icon name="star" [ngClass]="{'active': bookingRequest.stars[2]}"></ion-icon>
                         <ion-icon name="star" [ngClass]="{'active': bookingRequest.stars[2]}"></ion-icon>
@@ -77,7 +77,7 @@
                     </ion-label>
                 </ion-item>
                 <ion-item>
-                    <ion-checkbox color="default" [(ngModel)]="bookingRequest.stars[3]"></ion-checkbox>
+                    <ion-checkbox color="default" [(ngModel)]="bookingRequest.stars[3]" (click)="distanceChanged(bookingRequest.distance)"></ion-checkbox>
                     <ion-label>
                         <ion-icon name="star" [ngClass]="{'active': bookingRequest.stars[3]}"></ion-icon>
                         <ion-icon name="star" [ngClass]="{'active': bookingRequest.stars[3]}"></ion-icon>
@@ -88,7 +88,7 @@
             </ion-row>
             <ion-row>
                 <ion-item>
-                    <ion-checkbox color="default" [(ngModel)]="bookingRequest.stars[4]"></ion-checkbox>
+                    <ion-checkbox color="default" [(ngModel)]="bookingRequest.stars[4]" (click)="distanceChanged(bookingRequest.distance)"></ion-checkbox>
                     <ion-label>
                         <ion-icon name="star" [ngClass]="{'active': bookingRequest.stars[4]}"></ion-icon>
                         <ion-icon name="star" [ngClass]="{'active': bookingRequest.stars[4]}"></ion-icon>
@@ -102,13 +102,13 @@
         <div class="extrasContainer" text-center>
             <ion-row>
                 <ion-item width-40 offset-10>
-                    <ion-checkbox color="default" [(ngModel)]="bookingRequest.wifi"></ion-checkbox>
+                    <ion-checkbox color="default" [(ngModel)]="bookingRequest.wifi" (click)="distanceChanged(bookingRequest.distance)"></ion-checkbox>
                     <ion-label style="color: #222">Wifi</ion-label>
                 </ion-item>
 
                 <!--<ion-icon ios="ios-wifi" md="ios-wifi">Wifi</ion-icon>-->
                 <ion-item width-40 offset-10>
-                    <ion-checkbox color="default" [(ngModel)]="bookingRequest.pool"></ion-checkbox>
+                    <ion-checkbox color="default" [(ngModel)]="bookingRequest.pool" (click)="distanceChanged(bookingRequest.distance)"></ion-checkbox>
                     <ion-label style="color: #222">Swimming Pool</ion-label>
                 </ion-item>
                 <!--<ion-icon ios="md-wifi" md="md-wifi"></ion-icon>-->

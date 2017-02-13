@@ -22,6 +22,7 @@ import { bookingRequestUserDetailsComponent }             from '../pages/booking
 import { bookingRequestUserDetailsConfirmationComponent } from '../pages/bookingRequestDetails/bookingRequestUserDetailsConfirmation.component';
 import { BookingRequestService }                          from '../pages/bookingRequest/bookingRequest.service';
 import { DateRangePickerService }                         from './shared/dateRangePicker/dateRangePicker.service';
+import { SecureStorageService }                           from './shared/secureStorage/secureStorage.service';
 import { BookingModalComponent }                          from '../pages/bookings/bookingModal.component';
 
 import { AgmCoreModule, GoogleMapsAPIWrapper }    from 'angular2-google-maps/core';
@@ -91,7 +92,8 @@ import { sebmGoogleMapComponent }                 from './shared/googleMaps/sebm
     LiveChatService, 
     GoogleMapsService,
     GoogleMapsAPIWrapper,
-    DateRangePickerService
+    DateRangePickerService,
+    SecureStorageService
     // GooglePlacesAutocompleteService
   ]
 })

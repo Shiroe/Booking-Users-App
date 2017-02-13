@@ -16,7 +16,7 @@ export class DateRangePickerComponent implements OnInit {
 
     days;
 	weekLabels;
-    openClendar;
+    openCalendar;
     setCheckout;
     startOfWeek;
 	checkinFormated;
@@ -38,7 +38,6 @@ export class DateRangePickerComponent implements OnInit {
     }
 
     ngOnInit(){
-        // this.days = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30];
 		this.checkinFormated = this.formatDate(this.bookingObj.checkin);
 		this.checkoutFormated = this.formatDate(this.bookingObj.checkout);
 
@@ -51,16 +50,7 @@ export class DateRangePickerComponent implements OnInit {
 
         this.days = this.getWeeks().weeks;
         this.weekLabels = this.getWeeks().labels;
-        this.openClendar = false;
-
-		console.log('chInF: ', this.checkinFormated);
-		console.log('chOutF: ', this.checkoutFormated);
-		console.log('today: ', this.today);
-		console.log('firstAvailDay: ', this.firstAvailDay);
-		console.log('lastActiveDay: ', this.lastActiveDay);
-		console.log('lastAvailDay: ', this.lastAvailDay);
-		console.log('days: ', this.days);
-		console.log('weekLabels: ', this.weekLabels);
+        this.openCalendar = false;
 		
     }
 
@@ -69,24 +59,55 @@ export class DateRangePickerComponent implements OnInit {
 		return {
 			"hoverable": this.isDayActive(day, this.bookingObj) && !this.isBetween(day, this.bookingObj),
 			"unavailable": !this.isDayActive(day,this.bookingObj),
-			"selected selected-from": this.isCheckin(day,this.bookingObj),
 			"in-between": this.isBetween(day,this.bookingObj),
-			"selected selected-to": this.isCheckout(day,this.bookingObj),
+			"selected": this.isCheckin(day,this.bookingObj) || this.isCheckout(day,this.bookingObj),
+			"selected-to": this.isCheckout(day,this.bookingObj),
+			"selected-from": this.isCheckin(day,this.bookingObj),
 		};
 	};
 
 	selectDate(day) {
+		console.log('Day selected! :', day);
+		
 		var setcheckout = this.setCheckout;
 		this.setCheckout = false;
         this.checkoutChanged.emit({
             value: setcheckout
         })
 		// bookingService.selectDate(day, setcheckout); export date changed
+
+		// check if there is checkin but no checkout date
+		if(this.bookingObj.checkin && !this.bookingObj.checkout || setcheckout){
+
+			// be sure that this day is after check in
+			if (moment(day.date) > moment(this.bookingObj.checkin)){
+
+				// TODO: check if is allowed by settings
+				// now we can set a checkout date
+				this.bookingObj.checkout = day.date;
+				this.bookingObj.check_out_date = moment(day.date).format("DD/MM/YYYY");
+				// return true;
+			}
+		}
+		else if(day.active) {
+			// so we may not heve checkin date or have both setup, who cares?
+			// let set checkin date, is it active?
+			// now we can set a checkout date
+			this.bookingObj.checkin = day.date;
+			this.bookingObj.check_in_date = moment(day.date).format("DD/MM/YYYY");
+			this.bookingObj.checkout = false;
+			this.bookingObj.check_out_date = false;
+			// return true;
+		}
+
 		if (this.bookingObj.checkin &&  this.bookingObj.checkout) {
 			this.checkinFormated = this.formatDate(this.bookingObj.checkin);
 			this.checkoutFormated = this.formatDate(this.bookingObj.checkout);
-			this.openClendar = false;
+			this.bookingObj.days = moment(this.bookingObj.checkout).diff(moment(this.bookingObj.checkin),'days');
+			this.openCalendar = false;
 		}
+
+		// return false;
 	};
 
     getWeekNo = function(day) {

@@ -60,7 +60,7 @@ export class BookingModalComponent implements OnInit, OnDestroy{
 
     responseHandler(resp){
          console.log('response:', resp);
-         this._navCtrl.push( BookingComponent, {booking: resp});
+         this._navCtrl.push( BookingComponent, {booking: resp, email: this.email, reference: this.reference});
          this.dismiss(resp);
     }
 

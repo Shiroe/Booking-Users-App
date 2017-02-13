@@ -42,4 +42,23 @@ export class ServerService {
 
 		return this._http.post(this.api, params, headers ).map( res => res.json());
 	}
+
+	findHotels(booking, LatLng, dist){
+		let headers = new Headers();
+		headers.append('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+		headers.append('Access-Control-Allow-Origin:', '*');
+		headers.append('crossDomain', 'true'); 
+		let params = new URLSearchParams();
+		params.set('crossDomain', 'true');
+		params.set('action', 'findHotels');
+		params.set('center_lat', LatLng.lat);
+		params.set('center_lng', LatLng.lng);
+		params.set('range', dist);
+		params.set('wifi', booking.wifi);
+		params.set('pool', booking.pool);
+		params.set('stars', booking.stars.indexOf(true) + 1);
+		// params.set('data.action', 'findHotels');
+
+		return this._http.post(this.api, params, headers ).map( res => res.json());
+	}
 }

@@ -18,11 +18,11 @@
         </ion-row>
         <ion-row>
             <span class="left" width-50>Check-in</span>
-            <span class="right" width-50>{{ bookingRequest.checkin }}</span>
+            <span class="right" width-50>{{ bookingRequest.checkin | date }}</span>
         </ion-row>
         <ion-row>
             <span class="left" width-50>Check-out</span>
-            <span class="right" width-50>{{ bookingRequest.checkout }}</span>
+            <span class="right" width-50>{{ bookingRequest.checkout | date}}</span>
         </ion-row>
         <ion-row>
             <span class="left" width-50>Guests</span>

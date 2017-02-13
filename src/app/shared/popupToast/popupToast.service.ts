@@ -8,18 +8,23 @@ export class PopupToastService {
 
     }
 
-    notAvailable(pos: string){
-        this._presentToast('This feature is not yet available', pos);
+    notAvailable(pos: string, dur?: number){
+        this._presentToast('This feature is not yet available', pos, dur);
     }
 
-    alert(text: string, pos: string){
-        this._presentToast(text, pos);
+    alert(text: string, pos: string, dur?: number){
+        this._presentToast(text, pos, dur);
     }
 
-    private _presentToast(text: string, pos: string) {
+    private _presentToast(text: string, pos: string, dur?: number) {
+        let duration = 3000;
+        if(dur){
+            duration = dur;
+        }
+
         let toast = this._toastController.create({
             message: text,
-            duration: 3000,
+            duration: duration,
             position: pos
         });
 

@@ -1,16 +1,17 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 
 import { NavController, NavParams, Content } from 'ionic-angular';
 
 import { bookingRequestUserDetailsComponent } from '../bookingRequestDetails/bookingRequestUserDetails.component';
 import { BookingRequest } from './bookingRequest';
+import { BookingsService } from '../bookings/bookings.service';
 import { BookingRequestService } from './bookingRequest.service';
 
 @Component({
     selector: 'bookingStep-Three',
     templateUrl: './bookingStep-Three.component.html'
 })
-export class BookingStepThree implements OnInit{
+export class BookingStepThree implements OnInit, OnDestroy{
 
     @ViewChild(Content)
     content:Content;
@@ -20,11 +21,14 @@ export class BookingStepThree implements OnInit{
     bookingRequest;
     LatLng; 
     zoom: number = 13;
+    hotelsFound;
+    hotels
 
     constructor(
             private _navCtrl: NavController, 
             private _navParams: NavParams, 
             private _bookingRequestService: BookingRequestService, 
+            private _bookingsService: BookingsService
             ){
 
     }
@@ -49,7 +53,15 @@ export class BookingStepThree implements OnInit{
           this.zoom = 14;
         }
 
+        this.updateRequest();
+        
         return;
+    }
+
+    updateRequest(){
+        // this._bookingsService.findHotels(this.bookingRequest, this.LatLng, 2000);
+        this.hotels = this._bookingsService.findHotels(this.bookingRequest, this.LatLng, this.bookingRequest.distance)
+        .subscribe( res => this.hotelsFound = res.hotels_found );   
     }
 
     ngOnInit(){
@@ -65,12 +77,20 @@ export class BookingStepThree implements OnInit{
         this.bookingRequest.pool = false;
         this.bookingRequest.wifi = false;
         this.bookingRequest.distance = 2000;
+        this.updateRequest();
+        
+    }
+
+    ngOnDestroy(){
+        if(this.hotels.unsubscribe){
+            this.hotels.unsubscribe();
+        }
     }
 
     next(booking: BookingRequest){
         console.log('next step', this.bookingRequest);
 
-        if(this._bookingRequestService.validateStepThree(booking))
+        if(this._bookingRequestService.validateStepThree(booking, this.hotelsFound))
                 this._navCtrl.push(bookingRequestUserDetailsComponent, { bookingRequest: this.bookingRequest });
 
         return false;

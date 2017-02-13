@@ -1,16 +1,16 @@
-<div class="calendar-pre calendar-open" [ngClass]="{'calendar-open': openClendar}">
-    <div class="form-item check-in" (click)="openClendar = (bookingObj.location)">
-        <label for="">Check in</label>
+<div class="calendar-pre calendar-open" [ngClass]="{'calendar-open': openCalendar}">
+    <div class="form-item check-in" (click)="openCalendar = (bookingObj.location)">
+        <label for="">Check in: </label>
         <span class="calendar-field date-selected" style="margin-left: 10px;">{{checkinFormated}}</span>
         <ion-icon name="checkmark" style="float: right; margin-right: 10px; color: green;" *ngIf="bookingObj.checkin"></ion-icon>
     </div>
-    <div class="form-item check-out" (click)="openClendar = (bookingObj.location); setcheckout = true">
-        <label for="" class="">Check out</label>
+    <div class="form-item check-out" (click)="openCalendar = (bookingObj.location); setcheckout = true">
+        <label for="" class="">Check out: </label>
         <span class="calendar-field date-selected" style="margin-left: 10px;">{{checkoutFormated}}</span>
         <ion-icon name="checkmark" style="float: right; margin-right: 10px; color: green;" *ngIf="bookingObj.checkout"></ion-icon>
     </div>
 </div>
-<div class="calendar-main" >
+<div class="calendar-main" [hidden]="!openCalendar">
         <div class="mobile-months">
             <ion-icon ios="ios-arrow-back" md="ios-arrow-back"></ion-icon>
             <span class="month-shown">{{today}}</span>
@@ -30,7 +30,7 @@
             <span class="day">Sun</span>
         </div>
         <div class="dates">
-            <span [ngClass]="(getDayClasses(day))" *ngFor="let day of days" (clicl)="selectDay(day)">
+            <span [ngClass]="(getDayClasses(day))" *ngFor="let day of days" (click)="selectDate(day)">
                 <span>{{day.dateNum}}</span>
             </span>
         </div>

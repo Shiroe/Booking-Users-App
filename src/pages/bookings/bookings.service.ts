@@ -18,4 +18,8 @@ export class BookingsService{
 		//This should handle the booking ref and user mail 
 		// as object to the ServerService .addNew()
 	}
+
+	findHotels(booking, LatLng, dist){
+		return this._serverService.findHotels(booking, LatLng, dist);
+	}
 }

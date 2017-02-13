@@ -208,7 +208,8 @@ bookingStep-Two{
     }
 
 
-    .calendar-pre, .calendar-pre.calendar-open {
+    .calendar-pre,
+    .calendar-pre.calendar-open {
         border: 2px solid #f33617;
         // margin: 0 41px 0 39px;
     }
@@ -229,7 +230,7 @@ bookingStep-Two{
 
     .calendar-pre .form-item,
     .calendar-pre.calendar-open .form-item {
-        height: 40px !important;
+        height: 50px !important;
         font-size: 20px !important;
         line-height: 24px !important;
         padding: 5px 0px !important;
@@ -339,7 +340,7 @@ bookingStep-Two{
 
     .calendar-main .days,
     .calendar-main .dates {
-        width: 92%;
+        width: 100%;
         padding: 20px;
         float: left;
     }
@@ -410,13 +411,13 @@ bookingStep-Two{
     }
 
     .calendar-main .dates .selected.selected-from:after {
-        right: -20px;
+        right: -15px;
         border-top-right-radius: 20px;
         border-bottom-right-radius: 20px;
     }
 
     .calendar-main .dates .selected.selected-to:after {
-        left: -20px;
+        left: -15px;
         border-top-left-radius: 20px;
         border-bottom-left-radius: 20px;
         z-index: -1;
@@ -446,6 +447,7 @@ bookingStep-Two{
         position: absolute;
         top: 0;
         border-radius: 50%;
+        z-index: -1;
     }
 
     .calendar-main .dates .in-between span:before {
@@ -469,6 +471,7 @@ bookingStep-Three{
         background: transparent !important;
         background-image: url(../assets/images/range-thumb-icon-2.png) !important;
         background-repeat: no-repeat !important;
+        box-shadow: none !important;
     }
     
     .stepsContainer .stepThreeConfigs .range-pin{

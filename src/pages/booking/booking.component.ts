@@ -10,7 +10,7 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class BookingComponent implements OnInit{
 
-	booking = { expiration: '', status: ''};
+	booking = { expiration: '', status: '', email: '', ref: ''};
 	isConfirm: boolean = true;
 	evaluate: boolean;
 
@@ -21,8 +21,11 @@ export class BookingComponent implements OnInit{
 
 	ngOnInit(){
 		this.isConfirm = this._navParams.get('isNew');
+		this.booking = this._navParams.get('booking') ? this._navParams.get('booking') : {};
+		this.booking.email = this._navParams.get('email') ? this._navParams.get('email') : '';
+		this.booking.ref = this._navParams.get('reference') ? this._navParams.get('reference') : '';
 		this.booking.expiration = '02-03-2017 15:55';
-		if(parseInt(this.booking.status) != 0)
+		if(this.booking.status == null || parseInt(this.booking.status) != 0)
 			this.evaluate = false;
 		console.log('booking-view loaded');
 	}
