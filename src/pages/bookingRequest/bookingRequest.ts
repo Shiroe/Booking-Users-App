@@ -1,30 +1,39 @@
 
 export class UserDetails {
     email: string
-    name: string
-    phone: number
-    payment: PaymentDetails
+    first_name: string
+    telephone: number
+    card_data: PaymentDetails
 }
 
 export class PaymentDetails {
-    cardNumber: string
-    card_type: string
-    card_expiration: string
-    cvv: Number
-    card_name: string
+    number: string
+    //card_type: string
+    year: string
+    month: string
+    ccv: number
+    name: string
 }
 
 export class BookingRequest {
-    price: Number
-    location: string
-    country: string
-    guests: Number
-    checkin: string //or Date
-    checkout: string //or Date
-    distance: Number
-    stars: Array<Boolean>
-    wifi: boolean
-    pool: boolean
-    total_cost? : Number
-    user_details: UserDetails
+    price?: number
+    nights?: number
+    single_room?: number
+    double_room?: number
+    triple_room?: number
+    pool?: boolean
+    wifi?: boolean
+    stars?: Array<Boolean>
+    checkin?: string //or Date
+    checkout?: string //or Date
+    check_in_date?: string //or Date
+    check_out_date?: string //or Date
+    guests?: number
+    distance?: number
+    center_lat?: number
+    center_lng?: number
+    location?: string
+    country?: string
+    total_cost? : number
+    user_details?: UserDetails
 }

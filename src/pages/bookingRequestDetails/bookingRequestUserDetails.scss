@@ -1,7 +1,9 @@
 
 ion-icon#close{
-    z-index: 999 !important;
+    z-index: 9 !important;
 }
+
+
 
 bookingRequest-details{
     ion-content { 
@@ -55,6 +57,7 @@ bookingRequest-details{
         color: #f33617;
         text-align: left;
     }
+
 }
 
 bookingRequest-confirm{
@@ -92,7 +95,7 @@ bookingRequest-confirm{
         margin-top: 10px !important;
     }
 
-    div.detailsContainer p{
+    form.detailsContainer p{
         font-size: 18px;
         line-height: 22px;
         color: #f33617;
@@ -101,27 +104,46 @@ bookingRequest-confirm{
         font-weight: bold;
     }
 
-    div.detailsContainer ion-item{
+    form.detailsContainer ion-item{
         margin-bottom: 20px;
         border: 2px solid #111;
     }
 
-    div.detailsContainer ion-row ion-item{
-        width: 90%;
-        margin-left: auto;
-        margin-right: auto;
+    form.detailsContainer ion-row ion-item{
+        width: 95%;
+        
+        
     }
 
-    div.detailsContainer input {
+    form.detailsContainer input {
         border: none !important;    
     }
-    div.detailsContainer .item-inner {
+    form.detailsContainer .item-inner {
         border: none !important;
         box-shadow: none !important;    
     }
 
-    div.detailsContainer ion-item#ccv{
-        margin-left: 10px !important;
+    form.detailsContainer #ccv ion-item{
+        margin-left: auto !important;
+    }
+    form.detailsContainer #exp-date ion-item{
+        margin-right: auto !important;
+    }
+
+    form.detailsContainer ion-item#card-number ion-icon{
+        font-size: 28px !important;
+        // padding: 0px 30px 0px 45px !important;
+    }
+
+    .error-message{ 
+        color: #f33617 !important;
+        margin-top: -15px;
+        margin-left: 5px;
+        margin-bottom: 15px;        
+    }
+
+    div.marginKeyboard{
+        height: 100px !important;
     }
 
     

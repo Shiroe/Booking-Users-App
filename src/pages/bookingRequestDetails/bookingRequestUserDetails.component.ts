@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core'
 import { NavController, NavParams } from 'ionic-angular';
 
 import { bookingRequestUserDetailsConfirmationComponent } from './bookingRequestUserDetailsConfirmation.component';
+import { BookingRequest } from '../bookingRequest/bookingRequest';
 
 @Component({
     selector: 'bookingRequest-details',
@@ -10,7 +11,7 @@ import { bookingRequestUserDetailsConfirmationComponent } from './bookingRequest
 })
 export class bookingRequestUserDetailsComponent implements OnInit{
 
-    bookingRequest;
+    bookingRequest: BookingRequest;
 
     star: number;
     guests;
@@ -21,30 +22,23 @@ export class bookingRequestUserDetailsComponent implements OnInit{
     constructor(
             private _navCtrl: NavController, 
             private _navParams: NavParams){
-
     }
 
     ngOnInit(){
         this.bookingRequest = this._navParams.get('bookingRequest');
         this.star = this.bookingRequest.stars.indexOf(true);
-        console.log('STAR', this.star);
-        
         this.star++;
-        console.log('STAR', this.star);
         this.stars = [];
-
         for(let _i: number = 0; _i < this.star; _i++ )
                 this.stars.push(true);
 
-        this.guests = this.bookingRequest.guests.toString().substr(0,1);
-        this.rooms = this.bookingRequest.guests.toString().substr(1,1);
-        // let chIn = this.bookingRequest.checkin.split('-');
-        // let chOut = this.bookingRequest.checkout.split('-');
-        // let days = Number(chOut[2]) - Number(chIn[2]); 
-        let days = this.bookingRequest.days;
-        this.total = this.bookingRequest.price *  days;
-        console.log('guests: ', this.guests, ' rooms: ', this.rooms);
-        
+        this.guests = this.bookingRequest.guests;
+        this.rooms = this.bookingRequest.double_room;
+        let days = this.bookingRequest.nights;
+        this.total = this.bookingRequest.price *  days * parseInt(this.rooms);
+        this.bookingRequest.double_room = this.rooms;
+        this.bookingRequest.total_cost = this.total;        
+        console.log('Booking', this.bookingRequest);        
     }
 
     next(){

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <ion-header>
   <ion-navbar>
-    <ion-title>
+    <ion-title text-center>
       New Booking
     </ion-title>
 
@@ -37,7 +37,7 @@
         <div>
             <ion-item>
                 <ion-label>WHERE TO?</ion-label>
-                <ion-select class="dropdown" [(ngModel)]="bookingRequest.country" (ionChange)="countryChanged(bookingRequest.country)">
+                <ion-select class="dropdown" [(ngModel)]="bookingRequest.country" placeholder="Country" (ionChange)="countryChanged(bookingRequest.country)">
                     <!--<ion-option value="" selected="true">Country..</ion-option>-->
                     <ion-option value="GR" selected="selected">Greece</ion-option>
                     <ion-option value="FR">France</ion-option>
@@ -50,10 +50,11 @@
                 <ion-label>SOMEWHERE SPECIFIC?</ion-label>
                 <!--<ion-input [(ngModel)]="bookingRequest.location" (focus)="scrollTop()"  autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl"></ion-input>-->
             </ion-item>
-            <input [(ngModel)]="bookingRequest.location" (focus)="scrollTop()"  autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl"/>
+            <input placeholder="Location" [(ngModel)]="bookingRequest.location" (focus)="content.scrollToBottom()" (blur)="content.scrollToTop()"  autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl"/>
         </div>
     </div>
     <div class="bottomSectionBtn" (click)="next(bookingRequest)">
-        <button ion-button class="button-block" large outline color="default" outline>Next</button>
+        <button ion-button class="button-block" large color="default" >Next</button>
     </div>
+    <div class="marginKeyboard"></div>
 </ion-content>

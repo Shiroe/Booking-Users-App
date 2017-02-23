@@ -14,8 +14,9 @@ import { DateRangePickerComponent } from '../../app/shared/dateRangePicker/dateR
 })
 export class BookingStepTwo implements OnInit{
 
-    bookingRequest = new BookingRequest();
+    bookingRequest: BookingRequest;
     LatLng = {};
+    roomSetup;
     constructor(
             private _navCtrl: NavController, 
             private _navParams: NavParams, 
@@ -23,26 +24,24 @@ export class BookingStepTwo implements OnInit{
             private _dateRangePickerComponent: DateRangePickerComponent){
     }
 
-    ngOnInit(){
-        console.log('BookingsRequestWizard started');        
+    ngOnInit(){    
         this.bookingRequest = this._navParams.get('bookingRequest');
         this.LatLng = this._navParams.get('LatLng');
-        console.log('bookingrequest: ', this.bookingRequest);
         this.bookingRequest.checkin = '';
         this.bookingRequest.checkout = '';
-        this._dateRangePickerComponent.bookingObj = this.bookingRequest;
-        this._dateRangePickerComponent.checkoutChanged.subscribe( ev => console.log('checkoutChanged', ev));
-        
     }
 
     setCheckout(ev){
         console.log('Checkout Changed!', ev );
-        
+    }
+
+    roomSetupChanged(r){
+        this.bookingRequest.double_room = parseInt(r.toString().substr(1,1));   
+        this.bookingRequest.guests = parseInt(r.toString().substr(0,1));    
     }
 
     next(booking: BookingRequest){
         console.log('next step', this.bookingRequest);
-
         if(this._bookingRequestService.validateStepTwo(booking))
                 this._navCtrl.push(BookingStepThree, { bookingRequest: this.bookingRequest, LatLng: this.LatLng });
 

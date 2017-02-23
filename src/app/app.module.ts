@@ -22,6 +22,8 @@ import { bookingRequestUserDetailsComponent }             from '../pages/booking
 import { bookingRequestUserDetailsConfirmationComponent } from '../pages/bookingRequestDetails/bookingRequestUserDetailsConfirmation.component';
 import { BookingRequestService }                          from '../pages/bookingRequest/bookingRequest.service';
 import { DateRangePickerService }                         from './shared/dateRangePicker/dateRangePicker.service';
+import { Storage }                                        from '@ionic/storage';
+import { SecureStorage }                                  from 'ionic-native';
 import { SecureStorageService }                           from './shared/secureStorage/secureStorage.service';
 import { BookingModalComponent }                          from '../pages/bookings/bookingModal.component';
 
@@ -33,6 +35,8 @@ import { PopupToastService }                      from './shared/popupToast/popu
 import { GoogleMapsService }                      from './shared/googleMaps/google-maps.service';
 import { CountdownComponent }                     from './shared/countdown/countdown.component';
 import { sebmGoogleMapComponent }                 from './shared/googleMaps/sebmGoogleMap.component';
+import { SpinnerComponent }                       from './shared/spinner/spinner.component';
+import { CardImageLoaderComponent }               from './shared/cardImageLoader/cardImageLoader.component';
 
 // import { GooglePlacesAutocompleteService }        from './shared/placesAutocomplete/googlePlacesAutocomplete.service'
 
@@ -53,7 +57,9 @@ import { sebmGoogleMapComponent }                 from './shared/googleMaps/sebm
     DateRangePickerComponent,
     CountdownComponent,
     BookingModalComponent,
-    sebmGoogleMapComponent
+    sebmGoogleMapComponent,
+    CardImageLoaderComponent,
+    SpinnerComponent
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -82,7 +88,9 @@ import { sebmGoogleMapComponent }                 from './shared/googleMaps/sebm
     DateRangePickerComponent,
     CountdownComponent,
     BookingModalComponent,
-    sebmGoogleMapComponent
+    sebmGoogleMapComponent,
+    CardImageLoaderComponent,
+    SpinnerComponent
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, 
     PopupToastService, 
@@ -93,6 +101,8 @@ import { sebmGoogleMapComponent }                 from './shared/googleMaps/sebm
     GoogleMapsService,
     GoogleMapsAPIWrapper,
     DateRangePickerService,
+    Storage,
+    SecureStorage,
     SecureStorageService
     // GooglePlacesAutocompleteService
   ]

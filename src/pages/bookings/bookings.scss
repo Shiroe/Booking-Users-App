@@ -4,25 +4,48 @@ bookings-view {
 		background-image: url('../assets/images/home-hero-with-gradient.jpg');
 		background-size: cover;
 		background-repeat: no-repeat;
-		opacity: 0.8;
+		// opacity: 0.8;
 	}
 
-	ion-card{
+	ion-item.reorder{
+		background-color: transparent;
+		padding-left: 0px;
+	}
+	ion-item.reorder ion-label{
+		color: #fff !important;
+		text-align: right;
+	}
+
+	ion-item{
 		background-color: #f0f0f0;
 	}
 
-	ion-card .card-title{
+	ion-item .card-title{
 		font-size: 22px;
 		line-height: 26px;
 		color: #f33617;
 	}
 
-	ion-card .card-subtitle{
+	ion-item .card-subtitle{
 		font-size: 20px;
 		line-height: 28px;
 		color: #333;
 	    width: 100%;
 		margin-top: 10px;
+	}
+
+	ion-item .item-inner, ion-item-sliding ion-item-options{
+		border-bottom: none !important;
+		padding-right: 0px !important;
+	}
+
+	ion-item-sliding.item-wrapper{
+		margin: 10px 0;
+	}
+
+	ion-item-sliding ion-item-options .button {
+		height: 100% !important;
+		margin: 0 !important;
 	}
 
 	#addBookingBtn{
@@ -43,15 +66,15 @@ bookings-view {
 		// color: #F4D03F;
 	}
 
-	.accepted {
+	.claimed {
 		color: seagreen;
 	}
 
-	.pending {
+	.unclaimed {
 		color: coral;
 	}
 
-	.expired {
+	.expired, .canceled {
 		color: darkred;
 	}
 }

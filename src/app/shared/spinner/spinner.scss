@@ -1,0 +1,41 @@
+ab-spinner{
+    div.spinner_backdrop{
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: #222;
+        height: 100%;
+        opacity: 0.9;
+        z-index: 99;
+    }
+
+    div.spinner_container{
+        width: 100%;
+        z-index: 999;
+        bottom: 0;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+        margin-top: 40%;
+    }
+
+    div.spinner_container .ab-spinner-text{
+        display: block;
+        color: #fff;
+        font-size: 26px;
+        line-height: 30px;
+        margin-top: 80px;
+    }
+
+    div.spinner_container ion-spinner.ab-spinner{
+        width: 60px !important;
+        height: 60px !important;
+    }
+
+    div.spinner_container ion-spinner.spinner.ab-spinner svg > circle {
+        // font-size: 24px;
+        stroke: #f33617 !important;
+    }
+}

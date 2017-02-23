@@ -3,6 +3,7 @@ import { Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 
 import { HomePage } from '../pages/home/home.component';
+import { SecureStorageService } from './shared/secureStorage/secureStorage.service';
 
 
 @Component({
@@ -11,8 +12,14 @@ import { HomePage } from '../pages/home/home.component';
 export class MyApp {
   rootPage = HomePage;
 
-  constructor(platform: Platform) {
+  constructor(
+      platform: Platform,
+      private _secureStorageService: SecureStorageService
+    ) {
     platform.ready().then(() => {
+
+      // this._secureStorageService.init();
+      
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       StatusBar.styleDefault();

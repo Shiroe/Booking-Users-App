@@ -71,9 +71,6 @@ export class DateRangePickerComponent implements OnInit {
 		
 		var setcheckout = this.setCheckout;
 		this.setCheckout = false;
-        this.checkoutChanged.emit({
-            value: setcheckout
-        })
 		// bookingService.selectDate(day, setcheckout); export date changed
 
 		// check if there is checkin but no checkout date
@@ -93,18 +90,32 @@ export class DateRangePickerComponent implements OnInit {
 			// so we may not heve checkin date or have both setup, who cares?
 			// let set checkin date, is it active?
 			// now we can set a checkout date
-			this.bookingObj.checkin = day.date;
-			this.bookingObj.check_in_date = moment(day.date).format("DD/MM/YYYY");
-			this.bookingObj.checkout = false;
-			this.bookingObj.check_out_date = false;
-			// return true;
+			if (moment(day.date) > moment(this.bookingObj.checkin) && moment(day.date) > moment(this.bookingObj.checkout)){
+
+				this.bookingObj.checkout = day.date;
+				this.bookingObj.check_out_date = moment(day.date).format("DD/MM/YYYY");
+				// return true;
+			}else{
+
+				this.bookingObj.checkin = day.date;
+				this.bookingObj.check_in_date = moment(day.date).format("DD/MM/YYYY");
+				this.bookingObj.checkout = false;
+				this.bookingObj.check_out_date = false;
+				// return true;
+			}
 		}
 
 		if (this.bookingObj.checkin &&  this.bookingObj.checkout) {
 			this.checkinFormated = this.formatDate(this.bookingObj.checkin);
 			this.checkoutFormated = this.formatDate(this.bookingObj.checkout);
-			this.bookingObj.days = moment(this.bookingObj.checkout).diff(moment(this.bookingObj.checkin),'days');
-			this.openCalendar = false;
+			this.bookingObj.nights = moment(this.bookingObj.checkout).diff(moment(this.bookingObj.checkin),'days');
+			this.checkoutChanged.emit({
+				checkin: this.bookingObj.check_in_date,
+				checkout: this.bookingObj.check_out_date,
+				nights: this.bookingObj.nights
+			});
+
+			setTimeout( () => { this.openCalendar = false; }, 300);
 		}
 
 		// return false;

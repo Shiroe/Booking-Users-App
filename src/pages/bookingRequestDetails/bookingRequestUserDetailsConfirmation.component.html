@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <ion-content padding text-left>
+    <ab-spinner [isVisible]="show" [text]="showText"></ab-spinner>
     <div padding class="headerContainer">
         <ion-row>
             <h3 width-80>Your details</h3>
@@ -7,32 +8,65 @@
         </ion-row>
     </div>
     <span class="redlinedivider"></span>
-    <div class="detailsContainer">
+    <form [formGroup]="details" class="detailsContainer" (ngSubmit)="next()" novalidate >
         <ion-item>
-            <ion-input placeholder="Email" type="email" [(ngModel)]="email"></ion-input>
+            <ion-input placeholder="Email" type="email" formControlName="email"></ion-input>
         </ion-item>
+        <div *ngIf="details.controls.email.touched && details.controls.email.errors">
+            <ion-label class="error-message" *ngIf="details.controls.email.errors.invalidEmail">* Email is invalid.</ion-label>
+            <ion-label class="error-message" *ngIf="details.controls.email.errors.required">* This field is required.</ion-label>
+        </div>
         <ion-item>
-            <ion-input placeholder="Name" type="text" [(ngModel)]="name"></ion-input>
+            <ion-input placeholder="Fullname" type="text" formControlName="name"></ion-input>
         </ion-item>
+        <div *ngIf="details.controls.name.touched && details.controls.name.errors">
+            <ion-label class="error-message" *ngIf="details.controls.name.errors.mustContainSpace">* Please provide your full name.</ion-label>
+            <ion-label class="error-message" *ngIf="details.controls.name.errors.required">* This field is required.</ion-label>
+        </div>
         <ion-item>
-            <ion-input placeholder="Phone" type="number" [(ngModel)]="phone"></ion-input>
+            <ion-input placeholder="Phone" type="number" formControlName="phone"></ion-input>
         </ion-item>
+        <div *ngIf="details.controls.phone.touched && details.controls.phone.errors">
+            <ion-label class="error-message" *ngIf="details.controls.phone.errors.minlength || details.controls.phone.errors.maxlength ">* Phone number length should be 10 digits.</ion-label>
+            <ion-label class="error-message" *ngIf="details.controls.phone.errors.required">* This field is required.</ion-label>
+        </div>
         <p>
             We do NOT store your credit card info. Your credit will NOT be charged, unless we are able to find you a hotel matching your request.
         </p>
         <ion-item id="card-number">
-            <ion-input placeholder="Card number" type="number" [(ngModel)]="card_number"></ion-input>
+            <ion-label>
+                <ab-card-icon [card]="details.controls.card_number.value"></ab-card-icon>
+            </ion-label>
+            <ion-input placeholder="Card number" type="number" formControlName="card_number" (focus)="content.scrollToBottom()"></ion-input>
+            <ion-icon name="check" *ngIf="details.controls.card_number.valid"></ion-icon>
         </ion-item>
+        <div *ngIf="details.controls.card_number.touched && details.controls.card_number.errors">
+            <ion-label class="error-message" *ngIf="details.controls.card_number.errors.invalidCardNumber">* Card number is invalid.</ion-label>
+            <ion-label class="error-message" *ngIf="details.controls.card_number.errors.required">* This field is required.</ion-label>
+        </div>
         <ion-row>
-            <ion-item width-40 id="exp-date">
-                <ion-input placeholder="Expiry date" type="text" [(ngModel)]="card_expiry"></ion-input>
-            </ion-item>
-            <ion-item width-40 id="ccv">
-                <ion-input placeholder="CCV" type="number" [(ngModel)]="card_cvv"></ion-input>
-            </ion-item>
+            <div width-45 id="exp-date">
+                <ion-item >
+                    <ion-input placeholder="Expiry date" type="text" formControlName="card_exp" (focus)="content.scrollToBottom()"></ion-input>
+                </ion-item>
+                <div *ngIf="details.controls.card_exp.touched && details.controls.card_exp.errors">
+                    <ion-label class="error-message" *ngIf="details.controls.card_exp.errors.minlength || details.controls.card_exp.errors.maxlength">* Expiration date is invalid.</ion-label>
+                    <ion-label class="error-message" *ngIf="details.controls.card_exp.errors.required">* This field is required.</ion-label>
+                </div>
+            </div>
+            <div  width-45 id="ccv">
+                <ion-item >
+                    <ion-input placeholder="CCV" type="number" formControlName="card_ccv" (focus)="content.scrollToBottom()"></ion-input>
+                </ion-item>
+                <div *ngIf="details.controls.card_ccv.touched && details.controls.card_ccv.errors">
+                    <ion-label class="error-message" *ngIf="details.controls.card_ccv.errors.minlength || details.controls.card_ccv.errors.maxlength">* Card ccv length is invalid.</ion-label>
+                    <ion-label class="error-message" *ngIf="details.controls.card_ccv.errors.required">* This field is required.</ion-label>
+                </div>
+            </div>
         </ion-row>
-    </div>
-    <div class="bottomSectionBtn" (click)="next()">
-        <button ion-button class="button-block" large color="default"><ion-icon name="lock"></ion-icon>CONFIRM REQUEST</button>
-    </div>
+        <div class="bottomSectionBtn">
+            <button type="submit" ion-button class="button-block" large color="default" [disabled]="!details.valid" ><ion-icon name="lock" ></ion-icon>CONFIRM REQUEST</button>
+        </div>
+    </form>
+    <div class="marginKeyboard"></div>
 </ion-content>

@@ -19,10 +19,11 @@ export class BookingStepThree implements OnInit, OnDestroy{
     @ViewChild('map') map;
 
     bookingRequest;
+    loading: boolean = true;
     LatLng; 
     zoom: number = 13;
-    hotelsFound;
-    hotels
+    hotelsFound = 0;
+    hotels;
 
     constructor(
             private _navCtrl: NavController, 
@@ -30,11 +31,9 @@ export class BookingStepThree implements OnInit, OnDestroy{
             private _bookingRequestService: BookingRequestService, 
             private _bookingsService: BookingsService
             ){
-
     }
 
     distanceChanged(dist: number){
-        console.log('distance changed!');
 
         this.zoom = 13; // - (dist/1000);
 
@@ -59,21 +58,33 @@ export class BookingStepThree implements OnInit, OnDestroy{
     }
 
     updateRequest(){
-        // this._bookingsService.findHotels(this.bookingRequest, this.LatLng, 2000);
+        this.loading = true; 
+        this.hotelsFound = 0;
         this.hotels = this._bookingsService.findHotels(this.bookingRequest, this.LatLng, this.bookingRequest.distance)
-        .subscribe( res => this.hotelsFound = res.hotels_found );   
+        .then( res => {
+            this.hotelsFound = res.hotels_found;
+            this.loading = false; 
+        }, error => {
+            console.log('error http', error);
+            if( error.status == 503){
+                console.log('reconnecting!');                
+                setTimeout( () => {
+                    this.loading = true;
+                    this.updateRequest();
+                }, 100); 
+            }
+        });   
     }
 
     ngOnInit(){
-        this.LatLng = this._navParams.get('LatLng');
-        console.log('BookingsRequestWizard started');        
+        this.LatLng = this._navParams.get('LatLng');   
         this.bookingRequest = this._navParams.get('bookingRequest');
         this.bookingRequest.stars = [];
-        this.bookingRequest.stars[0] = false;
-        this.bookingRequest.stars[1] = false;
-        this.bookingRequest.stars[2] = false;
-        this.bookingRequest.stars[3] = false;
-        this.bookingRequest.stars[4] = false;
+        this.bookingRequest.stars[0] = true;
+        this.bookingRequest.stars[1] = true;
+        this.bookingRequest.stars[2] = true;
+        this.bookingRequest.stars[3] = true;
+        this.bookingRequest.stars[4] = true;
         this.bookingRequest.pool = false;
         this.bookingRequest.wifi = false;
         this.bookingRequest.distance = 2000;

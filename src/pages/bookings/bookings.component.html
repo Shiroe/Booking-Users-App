@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <ion-header>
   <ion-navbar>
-    <ion-title>
+    <ion-title text-center>
       My Bookings
     </ion-title>
 		
@@ -12,42 +12,38 @@
 
 </ion-header>
 
+<ab-spinner [isVisible]="show" [text]="showText"></ab-spinner>
 <ion-content padding>
+	<ion-item class="reorder">
+		<ion-label> Reorder</ion-label>
+		<ion-toggle checked="false" [(ngModel)]="canOrder"></ion-toggle>
+	</ion-item>
+	<ion-list [(reorder)]="canOrder" (ionItemReorder)="reorderItems($event)" >
 
-	<ion-list>
-		<!--<booking-row *ngFor="let b of bookings"></booking-row>-->
-		<ion-card *ngFor="let b of bookings" (click)="viewBooking()" padding>
-			<ion-row>
-				<div class="card-title" text-left>{{ b.destination }}</div>
-				<div class="card-subtitle" text-right><span class="{{b.status | lowercase}}">{{ b.status }}</span></div>
-			</ion-row>
-			<ion-row>
-				<div width-50 class="card-subtitle" text-left><ion-icon name="calendar"></ion-icon> {{ b.date | date }}</div>
-				<div offset-25 class="card-subtitle" text-right>{{ b.total_cost }}<ion-icon name="logo-euro"></ion-icon></div>
-			</ion-row>
-		</ion-card>
-
-		<!--<ion-item-sliding #item *ngFor="let b of bookings" (click)="viewBooking()" padding>
-				<ion-item>
-					<ion-card>
+		<ion-item-sliding *ngFor="let b of bookings">
+				<ion-item (click)="viewBooking(b)">
 						<ion-row>
 							<div class="card-title" text-left>{{ b.destination }}</div>
-							<div class="card-subtitle" text-right><span class="{{b.status | lowercase}}">{{ b.status }}</span></div>
+							<div class="card-subtitle" text-right [ngSwitch]="b.status">
+								<!--<span class="{{b.status | lowercase}}">{{ b.status }}</span>-->
+								<span class="unclaimed" *ngSwitchCase="0">Unclaimed</span>
+								<span class="claimed" *ngSwitchCase="1">Claimed</span>
+								<span class="expired" *ngSwitchCase="2">Expired</span>
+								<span class="canceled" *ngSwitchCase="3">Canceled</span>
+							</div>
 						</ion-row>
 						<ion-row>
 							<div width-50 class="card-subtitle" text-left><ion-icon name="calendar"></ion-icon> {{ b.date | date }}</div>
 							<div offset-25 class="card-subtitle" text-right>{{ b.total_cost }}<ion-icon name="logo-euro"></ion-icon></div>
 						</ion-row>
-					</ion-card>
 				</ion-item>
 				<ion-item-options side="right">
-					<button ion-button >
-						<ion-icon name="archive"></ion-icon>
-						Archive
+					<button ion-button (click)="remove(b)">
+						<ion-icon name="trash"></ion-icon>
+						Remove
 					</button>
 				</ion-item-options>
-		</ion-item-sliding>-->
-
+		</ion-item-sliding>
 
 		<div id="addBookingBtn" text-center>
 			<ion-icon name="add-circle" (click)="addNewBooking()"></ion-icon>

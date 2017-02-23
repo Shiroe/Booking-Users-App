@@ -12,7 +12,7 @@
     </ion-buttons>
 
     <ion-title text-center>
-      #ref855361
+      {{booking.ref}}
     </ion-title>
 		
     <ion-buttons end>
@@ -21,7 +21,7 @@
   </ion-toolbar>
 
 </ion-header>
-
+<ab-spinner [isVisible]="show" [text]="showText"></ab-spinner>
 <ion-content padding>
   <div class="booking-confirmation" padding text-center *ngIf="isConfirm">
       <!--<button color="secondary" class="successButton" ion-button icon-only>-->
@@ -76,8 +76,16 @@
       <span class="right-value">{{booking.persons}}</span>
     </ion-row>
     <ion-row>
+      <span class="left-title">Rooms</span>
+      <div [ngSwitch]="booking.double_rooms">
+        <span class="right-value" *ngSwitchCase="1">{{booking.double_rooms}} double bedroom</span>
+        <span class="right-value" *ngSwitchDefault>{{booking.double_rooms}} double bedrooms</span>
+      </div>
+    </ion-row>
+    <ion-row>
       <span class="left-title">Hotel stars</span>
-      <ion-icon  class="right-value" name="star" *ngFor="let s of [1,2,3]"></ion-icon>
+      <ion-icon  class="right-value" name="star" *ngFor="let s of stars"></ion-icon>
+      <ion-icon class="right-value" name="add" *ngIf="star < 5"></ion-icon>
     </ion-row>
     <ion-row>
       <span class="left-title">Wifi</span>
@@ -96,7 +104,7 @@
       <span >TIME LEFT TO ACCEPT YOUR REQUEST</span>
     </div>
   </div>
-  <ab-countdown [expiration]="booking.expires_in_secs" [evaluate]="evaluate"></ab-countdown>
+  <ab-countdown [expiration]="booking.expires_in_secs" [evaluate]="evaluate" (onExpire)="onExpiration($event)"></ab-countdown>
   <div class="payment-method" padding text-center>
     <h3 class="heading">
       Your payment <br/> method
@@ -109,14 +117,15 @@
   </div>
   <div class="card-details" text-center padding>
     <span class="card-img">
-      <ion-icon name="card"></ion-icon>
+      <!--<ion-icon name="card"></ion-icon>-->
+      <ab-card-icon [card]="booking.card"></ab-card-icon>
     </span>
     <span class="card-number"> **** **** **** {{booking.card_last_digits}} </span>
-    <button ion-button color="default" class="button-block edit-btn" large clear><ion-icon name="create" left></ion-icon><span>EDIT</span></button>
+    <button ion-button color="default" class="button-block edit-btn" [disabled]="!evaluate || booking.payment_status!='failed'" large clear (click)="recharge(booking)"><ion-icon name="create" left></ion-icon><span>RECHARGE</span></button>
   </div>
 
   <div class="cancel-button" style="background-color: transparent;" text-center>
-    <button ion-button color="default" class="button-block" large><span>Cancel your booking request</span></button>
+    <button ion-button color="default" class="button-block" large (click)="cancel(booking)"><span>Cancel your booking request</span></button>
   </div>
 
 </ion-content>

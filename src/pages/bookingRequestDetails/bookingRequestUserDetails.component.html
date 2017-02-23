@@ -14,7 +14,7 @@
         </ion-row>
         <ion-row>
             <span class="left" width-50>Location</span>
-            <span class="right" width-50>{{bookingRequest.location}}, {{bookingRequest.country}}</span>
+            <span class="right" width-50>{{bookingRequest.location}}</span>
         </ion-row>
         <ion-row>
             <span class="left" width-50>Check-in</span>
@@ -51,6 +51,6 @@
     <span class="redlinedivider"></span>
     <span class="total-price"> {{ total | currency: 'EUR': true}}</span>
     <div class="bottomSectionBtn" (click)="next()">
-        <button ion-button class="button-block" large outline color="default" outline>PROCEED TO CHECKOUT</button>
+        <button ion-button class="button-block" large color="default">PROCEED TO CHECKOUT</button>
     </div>
 </ion-content>

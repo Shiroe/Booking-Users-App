@@ -7,7 +7,9 @@
 </ion-header>
 
 <ion-content padding>
-	<div class="transparencyFilter"></div>
+	<!--<div class="transparencyFilter"></div>-->
+
+	<!--<ab-spinner [isVisible]="show" ></ab-spinner>-->
 	<section id="homepage">
 		<div text-center>
 			<h1>Travel<br>Everywhere</h1>
@@ -18,13 +20,13 @@
 		</div>
 	</section>
 	<section id="homebuttons">
-		<div style="background-color: transparent;">
-			<div style="background-color: transparent; margin-bottom: 30px;">
-				<button ion-button color="default" class="button-block" large outline (click)="request()"><span>Make Request</span></button>
+		<!--<div style="background-color: transparent;">-->
+			<div class="bottomSectionBtn" style=" margin-bottom: 30px;">
+				<button ion-button color="default" class="button-block" large (click)="request()"><span>Make Request</span></button>
 			</div>
-			<div style="background-color: transparent;">
-				<button ion-button color="default" class="button-block" large outline (click)="bookings()"><span>My Booking</span></button>
+			<div class="bottomSectionBtn">
+				<button ion-button color="default" class="button-block" large (click)="bookings()"><span>My Booking</span></button>
 			</div>
-		</div>
+		<!--</div>-->
 	</section>
 </ion-content>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <ion-header>
   <ion-navbar>
-    <ion-title>
+    <ion-title text-center>
       New Booking
     </ion-title>
 
@@ -13,13 +13,6 @@
 </ion-header>
 
 <ion-content class="stepsContainer" padding text-center>
-    <div class="" text-center>
-        <ion-row>
-            <h2 clas="hotelResultsHeading heading-number">{{hotelsFound}}</h2>
-            <h2 class="hotelResultsHeading">Hotels Found</h2>
-        </ion-row>        
-        
-    </div>
     <div class="mapContainer">
         <ab-map 
             [lat]="LatLng.lat" 
@@ -28,26 +21,21 @@
             [radius]="bookingRequest.distance"
         >
         </ab-map>
-        <!--<sebm-google-map #map 
-                [latitude]="LatLng.lat" 
-                [longitude]="LatLng.lng" 
-                [draggable]="false" 
-                [zoom]="zoom" 
-                [mapDraggable]="false" 
-                [streetViewControl]="false" 
-                [disableDefaultUI]="true" 
-                [disableDoubleClickZoom]="true"
-                [scrollwheel]="false"
-                [zoomControl]="false"
-                [usePanning]="false"
-                [styles]="mapStyles"
-                 >
-        </sebm-google-map>-->
-        <div class="glassfilter"></div>
+        <!--<div class="glassfilter"></div>-->
+    </div>
+    <div class="">
+        <ion-row>
+            <div [ngSwitch]="loading" width-40 offset-10 style="margin-left: auto;">
+                <h2 class="hotelResultsHeading heading-number" *ngSwitchCase="false">{{hotelsFound}}</h2>
+                <h2 class="hotelResultsHeading heading-number" *ngSwitchCase="true"><ion-spinner></ion-spinner></h2>
+                <h2 *ngSwitchDefault class="hotelResultsHeading heading-number"><ion-spinner></ion-spinner></h2>
+            </div>
+            <h2 width-40 offset-10 class="hotelResultsHeading">Hotels Found</h2>
+        </ion-row>        
     </div>
     <div class="stepThreeConfigs" text-center>
         <!--<ion-item>-->
-            <ion-range color="default" min="1000" max="5000" step="500" snaps="true" pin=true (ionChange)="distanceChanged(bookingRequest.distance)" [(ngModel)]="bookingRequest.distance">
+            <ion-range color="default" min="500" max="5000" step="500" snaps="true" pin=true (ionChange)="distanceChanged(bookingRequest.distance)" [(ngModel)]="bookingRequest.distance">
             </ion-range>
         <!--</ion-item>-->
         <div class="starsContainer">
@@ -106,16 +94,14 @@
                     <ion-label style="color: #222">Wifi</ion-label>
                 </ion-item>
 
-                <!--<ion-icon ios="ios-wifi" md="ios-wifi">Wifi</ion-icon>-->
                 <ion-item width-40 offset-10>
                     <ion-checkbox color="default" [(ngModel)]="bookingRequest.pool" (click)="distanceChanged(bookingRequest.distance)"></ion-checkbox>
                     <ion-label style="color: #222">Swimming Pool</ion-label>
                 </ion-item>
-                <!--<ion-icon ios="md-wifi" md="md-wifi"></ion-icon>-->
             </ion-row>
         </div>
     </div>
     <div class="bottomSectionBtn" (click)="next(bookingRequest)">
-        <button ion-button class="button-block" large outline color="default" outline>MAKE A REQUEST</button>
+        <button ion-button class="button-block" large color="default" [disabled]="loading" >MAKE A REQUEST</button>
     </div>
 </ion-content>

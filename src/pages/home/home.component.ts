@@ -4,12 +4,16 @@ import { NavController } from 'ionic-angular';
 
 import { BookingsComponent } from '../bookings/bookings.component';
 import { BookingStepOne } from '../bookingRequest/bookingStep-One.component';
+import { SpinnerComponent } from '../../app/shared/spinner/spinner.component';
 
 @Component({
   selector: 'page-home',
-  templateUrl: 'home.component.html'
+  templateUrl: 'home.component.html',
+  providers: [SpinnerComponent]
 })
 export class HomePage {
+
+  show: boolean = false;
 
   constructor(public navCtrl: NavController) {
 
@@ -17,6 +21,7 @@ export class HomePage {
 
   request(){
 	  console.log('request pressed');
+    // this.show = true;
     this.navCtrl.push(BookingStepOne, {});
   }
 

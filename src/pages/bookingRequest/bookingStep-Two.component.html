@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <ion-header>
   <ion-navbar>
-    <ion-title>
+    <ion-title text-center>
       New Booking
     </ion-title>
 
@@ -16,8 +16,8 @@
     <div>
         <ion-item>
             <ion-label>HOW MANY?</ion-label>
-            <ion-select class="dropdown" [(ngModel)]="bookingRequest.guests">
-                <ion-option value="11">1 Person</ion-option>
+            <ion-select class="dropdown" [(ngModel)]="roomSetup" placeholder="Persons" (ionChange)="roomSetupChanged(roomSetup)">
+                <ion-option value="11" selected="selected">1 Person</ion-option>
                 <ion-option value="21">2 Persons (1 Room)</ion-option>
                 <ion-option value="22">2 Persons (2 Rooms)</ion-option>
                 <ion-option value="33">3 Persons (3 Rooms)</ion-option>
@@ -28,23 +28,9 @@
     </div>
 
     <div class="stepTwoDateRange" text-center>
-        <!--<div>
-            <h2>Check In / Check Out</h2>
-        </div>
-        <div class="inputContainer" text-center>
-            <ion-label stacked>Destination</ion-label>
-            <ion-row>
-                <ion-col width-50>
-                    <input type="date"  [(ngModel)]="bookingRequest.checkin"/>
-                </ion-col>_
-                <ion-col width-50>
-                    <input type="date"  [(ngModel)]="bookingRequest.checkout"/>
-                </ion-col>
-            </ion-row>
-        </div>-->
-        <ab-dateRange [bookingObj]="bookingRequest"></ab-dateRange>
+        <ab-dateRange [bookingObj]="bookingRequest" (checkoutChanged)="setCheckout($event)"></ab-dateRange>
     </div>
     <div class="bottomSectionBtn" (click)="next(bookingRequest)">
-        <button ion-button class="button-block" large outline color="default" outline>FIND MY OPTIONS</button>
+        <button ion-button class="button-block" large color="default">FIND MY OPTIONS</button>
     </div>
 </ion-content>
