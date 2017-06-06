@@ -23,6 +23,7 @@ import { bookingRequestUserDetailsConfirmationComponent } from '../pages/booking
 import { BookingRequestService }                          from '../pages/bookingRequest/bookingRequest.service';
 import { DateRangePickerService }                         from './shared/dateRangePicker/dateRangePicker.service';
 import { Storage }                                        from '@ionic/storage';
+import { CloudSettings, CloudModule } 					  from '@ionic/cloud-angular';
 import { SecureStorage }                                  from 'ionic-native';
 import { SecureStorageService }                           from './shared/secureStorage/secureStorage.service';
 import { BookingModalComponent }                          from '../pages/bookings/bookingModal.component';
@@ -44,7 +45,7 @@ import { CardImageLoaderComponent }               from './shared/cardImageLoader
   declarations: [
     MyApp,
     HomePage,
-	  BookingsComponent,
+	BookingsComponent,
     BookingRowComponent,
     BookingComponent,
     BookingStepOne,
@@ -63,13 +64,18 @@ import { CardImageLoaderComponent }               from './shared/cardImageLoader
   ],
   imports: [
     IonicModule.forRoot(MyApp),
+    CloudModule.forRoot({
+  		'core': {
+    		'app_id': '80233bc5'
+		}
+  	}),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCOXN-KFDrJDzuKU7hv2kROt5iT5hKjDzk',
       libraries: ["places"]
     }),
-    FormsModule, 
+    FormsModule,
     ReactiveFormsModule,
-    HttpModule 
+    HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -92,12 +98,12 @@ import { CardImageLoaderComponent }               from './shared/cardImageLoader
     CardImageLoaderComponent,
     SpinnerComponent
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, 
-    PopupToastService, 
-    BookingsService, 
-    BookingRequestService, 
-    ServerService, 
-    LiveChatService, 
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},
+    PopupToastService,
+    BookingsService,
+    BookingRequestService,
+    ServerService,
+    LiveChatService,
     GoogleMapsService,
     GoogleMapsAPIWrapper,
     DateRangePickerService,

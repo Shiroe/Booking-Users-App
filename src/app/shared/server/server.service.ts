@@ -11,16 +11,16 @@ import { PopupToastService } from '../popupToast/popupToast.service';
 export class ServerService {
 
 	//TO DELETE THIS AND TOAST
-	private api: string = 'https://booking.vpsites.eu/wp-admin/admin-ajax.php';
+	private api: string = 'https://mytravelusive.com/wp-admin/admin-ajax.php';
 	// private api: string = '/api';
 	private headers = new Headers();
 
-	constructor( 
-		private _popupToastService: PopupToastService, 
+	constructor(
+		private _popupToastService: PopupToastService,
 		private _http: Http){
 		this.headers.append('Content-Type', 'application/json; charset=UTF-8');
 		// this.headers.append('Access-Control-Allow-Origin:', '*');
-		this.headers.append('crossDomain', 'true'); 
+		this.headers.append('crossDomain', 'true');
     }
 	bookings = [];
 
@@ -60,9 +60,9 @@ export class ServerService {
 
 		return this._http.post(this.api, params, this.headers ).map( res => res.json());
 	}
-	
+
 	proccessBooking(booking: BookingRequest, submit: boolean){
-		let params = new URLSearchParams();		
+		let params = new URLSearchParams();
 
 		let data = {
 			'action'			: 'processBooking',

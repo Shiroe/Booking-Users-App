@@ -13,6 +13,8 @@ import { SpinnerComponent } from '../../app/shared/spinner/spinner.component';
 })
 export class HomePage {
 
+
+
   show: boolean = false;
 
   constructor(public navCtrl: NavController) {
